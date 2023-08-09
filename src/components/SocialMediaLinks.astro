@@ -1,0 +1,25 @@
+---
+import Link from '@components/Link.astro'
+
+const GITHUB_PROFILE_URL = 'https://github.com/tboerc'
+const LINKEDIN_URL = 'https://www.linkedin.com/in/tiago-boer-casagrande'
+const NPM_PROFILE_URL = 'https://www.npmjs.com/~tboerc'
+
+type Props = {
+	class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<ul class={className}>
+	<li>
+		<Link href={LINKEDIN_URL}>LinkedIn</Link>
+	</li>
+	<li>
+		<Link href={GITHUB_PROFILE_URL}>GitHub</Link>
+	</li>
+	<li>
+		<Link href={NPM_PROFILE_URL}>npm</Link>
+	</li>
+</ul>

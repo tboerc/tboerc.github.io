@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets'
+import { getCollection, type CollectionEntry } from 'astro:content'
+import Link from '@components/Link.astro'
+import Title from '@components/Title.astro'
+import Wrapper from '@components/Wrapper.astro'
+import PageLayout from '@layouts/PageLayout.astro'
+import Paragraph from '@components/Paragraph.astro'
+import EducationList from '@components/Education/EducationList.astro'
+import WorkExperienceList from '@components/WorkExperience/WorkExperienceList.astro'
+import { i18n } from '@i18n/index'
+import me from '@assets/me.jpeg'
+
+const { t, r, localeKey } = i18n(Astro.url)
+
+type Education = CollectionEntry<'education'>
+type WorkExperience = CollectionEntry<'work-experience'>
+
+const sortEducation = (a: Education, b: Education) => {
+	const dateA = a.data.date || a.data.period?.to
+	const dateB = b.data.date || b.data.period?.to
+	return dateB!.getTime() - dateA!.getTime()
+}
+
+const sortWorkExperience = (a: WorkExperience, b: WorkExperience) => {
+	return b.data.period.from.getTime() - a.data.period.from.getTime()
+}
+
+const educationCollection = await getCollection('education', (entry) => entry.id.startsWith(localeKey + '/'))
+const workExperienceCollection = await getCollection('work-experience', (entry) => entry.id.startsWith(localeKey + '/'))
+
+educationCollection.sort(sortEducation)
+workExperienceCollection.sort(sortWorkExperience)
+---
+
+<PageLayout title={t('menu.about')}>
+	<div class="sm:bg-gradient-to-r sm:from-black sm:from-50% sm:to-white sm:to-50%">
+		<Wrapper as="div" class="flex flex-col sm:flex-row sm:gap-16 sm:px-4 md:px-6 md:text-lg lg:gap-24 lg:text-xl">
+			<div class="flex-shrink-0 bg-black px-4 py-8 sm:flex-1 sm:px-0 lg:py-12">
+				<div class="center-me sm:sticky sm:top-[var(--center-offset)]">
+					<Image src={me} alt={t('about.sticky.myself')} width="568" height="568" />
+					<Title type="h2" class="mt-8 text-white lg:mt-12">{t('about.sticky.who')}</Title>
+					<Title type="h2" class="text-neutral-400">{t('about.sticky.story')}</Title>
+				</div>
+			</div>
+
+			<div class="flex flex-shrink-0 flex-col gap-6 px-4 py-8 sm:flex-1 sm:px-0 lg:py-12">
+				<Title type="h2">{t('about.story.title')}</Title>
+				<p>{t('about.story.p.1')}</p>
+				<p>{t('about.story.p.2')}</p>
+				<p>{t('about.story.p.3')}</p>
+
+				<Title type="h2" class="mt-2 lg:mt-6">{t('about.career')}</Title>
+				<WorkExperienceList collection={workExperienceCollection} />
+
+				<Title type="h2" class="mt-2 lg:mt-6">{t('about.education')}</Title>
+				<EducationList collection={educationCollection} />
+			</div>
+		</Wrapper>
+	</div>
+
+	<div class="border-t border-black text-center">
+		<Wrapper class="px-4 py-8 md:px-6 lg:py-12">
+			<Title type="h2">
+				<span class="bg-black leading-tight text-white">{t('about.contact.lets')}</span>
+			</Title>
+			<Paragraph class="mt-8">
+				{t('about.contact.interested')}{' '}
+				<Link href={r('/contact/')}>{t('about.contact.goto')}</Link>
+			</Paragraph>
+		</Wrapper>
+	</div>
+</PageLayout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const r = document.querySelector<HTMLElement>(':root')
+		const centerMe = document.querySelector<HTMLElement>('.center-me')
+		const navContainer = document.querySelector<HTMLElement>('div > nav')
+
+		const setup = () => {
+			const navHeight = navContainer?.offsetHeight ?? 0
+			const centerMeHeight = centerMe?.offsetHeight ?? 0
+			const centerOffset = Math.round((window.innerHeight + navHeight - centerMeHeight) / 2)
+			r?.style.setProperty('--center-offset', centerOffset + 'px')
+		}
+
+		setup()
+
+		document.addEventListener('resize', setup)
+	})
+</script>

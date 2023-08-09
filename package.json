@@ -1,0 +1,28 @@
+{
+	"name": "tboerc.github.io",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && tsc --noEmit && astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"fmt": "prettier --write \"src/**/*.{md,ts,astro}\""
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.2.0",
+		"@astrojs/sitemap": "^3.0.0",
+		"@astrojs/tailwind": "^5.0.0",
+		"@tailwindcss/typography": "^0.5.10",
+		"astro": "^3.0.12",
+		"astro-i18n-aut": "^0.4.14",
+		"class-variance-authority": "^0.7.0",
+		"prettier": "^3.0.3",
+		"prettier-plugin-astro": "^0.12.0",
+		"prettier-plugin-tailwindcss": "^0.5.4",
+		"tailwind-merge": "^1.14.0",
+		"tailwindcss": "^3.3.3"
+	}
+}

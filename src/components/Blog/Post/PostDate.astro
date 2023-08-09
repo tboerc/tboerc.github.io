@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { i18n } from '@i18n/index'
+
+type Props = {
+	publishDate: CollectionEntry<'blog'>['data']['publishDate']
+}
+
+const { locale } = i18n(Astro.url)
+
+const { publishDate } = Astro.props
+---
+
+<span class="text-sm text-neutral-500 dark:text-neutral-400 sm:text-base">
+	{publishDate.toLocaleDateString(locale, { dateStyle: 'medium' })}
+	<slot />
+</span>

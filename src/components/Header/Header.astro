@@ -1,0 +1,24 @@
+---
+import MenuList from '@components/Header/Menu/MenuList.astro'
+import Wrapper from '@components/Wrapper.astro'
+import Title from '@components/Title.astro'
+import { i18n } from '@i18n/index'
+
+const { t } = i18n(Astro.url)
+---
+
+<header class="inline">
+	<div class="border-b border-black">
+		<Wrapper class="flex flex-col p-4 md:p-6">
+			<Title as="span" type="h1" class="max-[360px]:text-4xl">Tiago Boer Casagrande</Title>
+			<Title as="span" type="h1" class="text-right max-[360px]:text-4xl">
+				<span class="bg-black leading-tight text-white" set:html={t('header.softwareEngineer')} />
+			</Title>
+		</Wrapper>
+	</div>
+	<div class="sticky top-0 z-10 border-b border-black bg-white">
+		<Wrapper as="nav" class="flex overflow-auto p-4 md:px-6">
+			<MenuList />
+		</Wrapper>
+	</div>
+</header>

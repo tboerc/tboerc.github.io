@@ -1,0 +1,10 @@
+---
+import BaseLayout, { type Props } from '@layouts/BaseLayout.astro'
+---
+
+<BaseLayout {...Astro.props}>
+	<slot name="head" slot="head" />
+	<main>
+		<slot />
+	</main>
+</BaseLayout>

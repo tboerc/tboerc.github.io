@@ -1,0 +1,33 @@
+---
+import Link from '@components/Link.astro'
+import Wrapper from '@components/Wrapper.astro'
+import LanguageSwitch from '@components/LanguageSwitch.astro'
+import SocialMediaLinks from '@components/SocialMediaLinks.astro'
+import { i18n } from '@i18n/index'
+
+const ASTRO_URL = 'https://astro.build/'
+const GITHUB_REPOSITORY_URL = 'https://github.com/tboerc/tboerc.github.io'
+
+const { t } = i18n(Astro.url)
+---
+
+<footer>
+	<div class="border-y border-black">
+		<Wrapper as="div" class="flex gap-4 p-4 md:p-6 md:py-4">
+			<LanguageSwitch />
+		</Wrapper>
+	</div>
+	<Wrapper class="flex flex-col gap-6 px-4 py-6 sm:flex-row sm:items-center md:px-6 md:py-8">
+		<div>
+			<div>
+				{t('footer.createdBy')}{' '}
+				<Link href={GITHUB_REPOSITORY_URL}>Tiago</Link>
+			</div>
+			<div>
+				{t('footer.built')}{' '}
+				<Link href={ASTRO_URL}>Astro</Link>
+			</div>
+		</div>
+		<SocialMediaLinks class="flex gap-4 sm:ml-auto md:gap-6" />
+	</Wrapper>
+</footer>

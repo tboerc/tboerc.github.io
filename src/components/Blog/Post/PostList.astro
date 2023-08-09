@@ -1,0 +1,14 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import PostItem from '@components/Blog/Post/PostItem.astro'
+
+type Props = {
+	list: CollectionEntry<'blog'>[]
+}
+
+const { list } = Astro.props
+---
+
+<ul class="flex flex-col divide-y divide-black py-6 md:py-8">
+	{list.map((item) => <PostItem item={item} />)}
+</ul>

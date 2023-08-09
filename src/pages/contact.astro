@@ -1,0 +1,42 @@
+---
+import Link from '@components/Link.astro'
+import Title from '@components/Title.astro'
+import Button from '@components/Button.astro'
+import Wrapper from '@components/Wrapper.astro'
+import PageLayout from '@layouts/PageLayout.astro'
+import FormField from '@components/FormField.astro'
+import Paragraph from '@components/Paragraph.astro'
+import SocialMediaLinks from '@components/SocialMediaLinks.astro'
+import { i18n } from '@i18n/index'
+
+const { t } = i18n(Astro.url)
+---
+
+<PageLayout title={t('menu.contact')}>
+	<Wrapper class="flex flex-col sm:flex-row">
+		<div class="flex flex-1 flex-col justify-center px-4 py-8 md:px-6 md:py-14 lg:flex-[2]">
+			<Title type="h1" class="overflow-hidden hyphens-manual break-words" set:html={t('contact.opportunities.title')} />
+			<div class="mt-4 flex flex-col gap-8 md:mt-8 md:flex-row md:gap-12">
+				<div>
+					<p class="font-bold">{t('contact.join.online')}</p>
+					<SocialMediaLinks />
+				</div>
+				<div>
+					<p class="font-bold">{t('contact.join.mail')}</p>
+					<Link href="mailto:tiago.boer@proton.me">tiago.boer@proton.me</Link>
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-col border-black px-4 py-8 max-sm:border-t sm:flex-1 sm:border-l md:px-6 lg:pl-8">
+			<Paragraph class="mb-4 md:mb-6">
+				{t('contact.opportunities.p')}
+			</Paragraph>
+			<form method="post" action="https://formspree.io/f/xoqodkdl" class="flex flex-col gap-4 md:gap-6">
+				<FormField name="name" label={t('contact.form.name')} required minlength="3" />
+				<FormField as="input" name="email" type="email" label={t('contact.form.email')} required />
+				<FormField as="textarea" name="message" label={t('contact.form.message')} required minlength="10" />
+				<Button as="button" type="submit" size="large" variant="filled" class="w-full">{t('contact.form.send')}</Button>
+			</form>
+		</div>
+	</Wrapper>
+</PageLayout>

@@ -1,0 +1,49 @@
+{
+	"meta.by": "por Tiago Boer Casagrande",
+
+	"header.softwareEngineer": "Engenheiro de software",
+
+	"menu.home": "Início",
+	"menu.contact": "Contato",
+	"menu.about": "Sobre",
+	"menu.blog": "Blog",
+
+	"footer.createdBy": "Criado com ❤️ por",
+	"footer.built": "Construído com",
+
+	"home.title": "Um <span class=\"bg-black text-white leading-tight\">ta&shy;len&shy;to&shy;so</span><br />de&shy;sen&shy;vol&shy;ve&shy;dor<br />frontend web<br />do Brasil",
+	"home.description": "Sou um desenvolvedor e estudante altamente motivado do Brasil. Eu adoro construir código que prioriza acessibilidade, responsividade e desempenho. Além disso, também sou um grande fã de tudo relacionado a código aberto.<br /><br />Tenho construído aplicações web há cerca de 4 anos e ainda adoro. Aprendendo algo novo toda semana. Atualmente, focado no desenvolvimento frontend com um pouco de desenvolvimento backend também.",
+	"home.blog.checkout": "Dê uma olhada no meu blog:",
+	"home.blog.description": "Desbrave as fronteiras da tecnologia e do design. Mergulhe em insights, tendências e criatividade no Front Report",
+
+	"about.sticky.who": "Quem sou eu?",
+	"about.sticky.story": "Sobre minha história",
+	"about.sticky.myself": "Uma imagem de mim mesmo",
+	"about.story.title": "História",
+	"about.story.p.1": "Olá! Eu sou o Tiago, um desenvolvedor web e estudante dedicado com do Brasil. Estou construindo aplicações web de ponta utilizando as tecnologias mais recentes, como React, Vue, TypeScript e muito mais, há cerca de 4 anos.",
+	"about.story.p.2": "Tudo começou quando eu tinha por volta de 12 anos, apenas uma criança tentando hackear um dispositivo Android que eu tinha. A partir desse momento, eu soube que tecnologia era algo que sou apaixonado. Alguns anos depois, consegui adquirir um computador e comecei a explorar a comunidade de código aberto. Fiquei maravilhado com esse novo universo que estava descobrindo, e entrar começar a programar parecia uma progressão natural.",
+	"about.story.p.3": "Hoje, sou um desenvolvedor em tempo integral que trabalhou em projetos que vão desde aplicativos móveis até aplicações web, abrangendo desde pequenas empresas até estatais. Busco constantemente novos desafios, visando entregar aplicações que priorizem acessibilidade, responsividade e desempenho.",
+	"about.career": "Carreira",
+	"about.education": "Formação",
+	"about.contact.lets": "Vamos nos falar",
+	"about.contact.interested": "Interessado em trabalhar juntos? Estou a apenas um clique de distância.",
+	"about.contact.goto": "Entre em contato",
+
+	"contact.opportunities.title": "Vamos falar<br />sobre<br /><span class=\"bg-black leading-tight text-white\">O&shy;por&shy;tu&shy;ni&shy;da&shy;des</span>",
+	"contact.opportunities.p": "Oportunidades aguardam. Se você está interessado em explorar como posso contribuir para sua equipe, estou aqui para conversar.",
+	"contact.form.name": "Nome",
+	"contact.form.email": "Email",
+	"contact.form.message": "Mensagem",
+	"contact.form.send": "Enviar",
+	"contact.join.online": "Junte-se a mim online",
+	"contact.join.mail": "Envie-me um e-mail diretamente:",
+
+	"blog.title": "Esse é o<br /><span class=\"bg-black text-white leading-tight\">Front Report</span>",
+	"blog.description": "Olá! Bem-vindo ao Front Report - seu cantinho aconchegante na internet para tudo relacionado a frontend e tecnologia! Estou em uma missão para compartilhar as insights mais incríveis, tendências e inovações do mundo do desenvolvimento web.<br /><br />Vamos desvendar as fronteiras da tecnologia e do design. Mergulhe em insights, tendências e criatividade.",
+	"blog.name": "Front Report",
+	"blog.featured": "Destaque",
+	"blog.allPosts": "Todas as publicações",
+	"blog.postAbout": "Post sobre ",
+	"blog.read": "min de leitura",
+	"blog.seeMore": "Ver mais"
+}

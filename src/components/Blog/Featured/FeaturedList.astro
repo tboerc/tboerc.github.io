@@ -1,0 +1,14 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import FeaturedItem from '@components/Blog/Featured/FeaturedItem.astro'
+
+type Props = {
+	list: CollectionEntry<'blog'>[]
+}
+
+const { list } = Astro.props
+---
+
+<ul class="flex flex-col gap-6 px-4 py-6 sm:flex-row sm:gap-4 sm:py-4 md:gap-6 md:p-6">
+	{list.map((item) => <FeaturedItem item={item} />)}
+</ul>

@@ -1,0 +1,16 @@
+---
+import type { Polymorphic } from 'astro/types'
+import { twMerge } from 'tailwind-merge'
+
+type Props<Tag extends 'input' | 'textarea'> = Polymorphic<{
+	as: Tag
+	label: string
+}>
+
+const { label, class: className, as: Tag = 'input', ...props } = Astro.props
+---
+
+<label class="flex flex-col">
+	<span class="mb-1 lg:text-lg">{label}</span>
+	<Tag {...props} class={twMerge('border border-black px-4 py-4', className)} />
+</label>

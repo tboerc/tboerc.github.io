@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://syntologist.github.io/sitemap-index.xml

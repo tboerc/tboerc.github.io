@@ -1,0 +1,21 @@
+---
+import { twMerge } from 'tailwind-merge'
+
+type Props = {
+	href: string
+	class?: string
+}
+
+const { href, class: className } = Astro.props
+
+const isExternal = href.startsWith('http')
+---
+
+<a
+	href={href}
+	target={isExternal ? '_blank' : null}
+	rel={isExternal ? 'noopener noreferrer' : null}
+	class={twMerge('underline', className)}
+>
+	<slot />
+</a>

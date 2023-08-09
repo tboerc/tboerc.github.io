@@ -1,0 +1,14 @@
+{
+	"editor.formatOnSave": true,
+	"tailwindCSS.classAttributes": ["class", "className", "class:list"],
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+}
