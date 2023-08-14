@@ -8,7 +8,7 @@ const { title, description } = Astro.props
 <BaseLayout title={`${title} - Blog`} description={description}>
 	<main>
 		<article
-			class="prose mx-auto border-x border-x-black p-4 lg:prose-xl prose-a:text-violet-700 prose-blockquote:border-violet-700 md:p-6"
+			class="prose mx-auto p-4 lg:prose-xl prose-a:text-violet-700 prose-blockquote:border-violet-700 md:border-x md:border-black md:p-6"
 		>
 			<slot />
 		</article>
