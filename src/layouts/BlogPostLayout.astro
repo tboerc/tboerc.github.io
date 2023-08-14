@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const { frontmatter } = Astro.props
+---
+
+<BaseLayout title={`${frontmatter.title} - Blog`} description={frontmatter.description}>
+	<main>
+		<article
+			class="prose lg:prose-xl prose-a:text-violet-700 prose-blockquote:border-violet-700 mx-auto border-x border-x-black p-4 md:p-6"
+		>
+			<slot />
+		</article>
+	</main>
+</BaseLayout>

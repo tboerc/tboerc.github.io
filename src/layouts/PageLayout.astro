@@ -1,0 +1,9 @@
+---
+import BaseLayout, { type Props } from '@layouts/BaseLayout.astro'
+---
+
+<BaseLayout {...Astro.props}>
+	<main class="min-h-screen p-4 md:p-6">
+		<slot />
+	</main>
+</BaseLayout>

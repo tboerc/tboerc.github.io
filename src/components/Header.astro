@@ -1,0 +1,40 @@
+---
+const menuItems = [
+	{ text: 'Home', pathname: '/' },
+	{ text: 'About', pathname: '/about' },
+	{ text: 'Contact', pathname: '/contact' },
+	{ text: 'Blog', pathname: '/blog' }
+]
+
+const currentPathname = new URL(Astro.request.url).pathname
+
+const isRouteActive = (pathname: string, currentPathname: string) => {
+	if (pathname === '/') return currentPathname === pathname
+	return currentPathname.startsWith(pathname)
+}
+---
+
+<header class="inline font-semibold">
+	<div
+		class="font-display flex flex-col border-b border-black p-4 text-5xl uppercase md:p-6 md:text-6xl lg:text-7xl xl:text-8xl"
+	>
+		<span>Tiago Boer Casagrande</span>
+		<span class="self-end bg-violet-700 text-right text-white">Software engineer</span>
+	</div>
+	<nav class="sticky top-0 overflow-auto border-b border-black bg-white p-4 md:p-6">
+		<ul class="flex gap-4 md:gap-6">
+			{
+				menuItems.map(({ text, pathname }) => (
+					<li
+						class:list={[
+							'font-display text-xl uppercase md:text-2xl lg:text-3xl',
+							isRouteActive(pathname, currentPathname) ? 'text-violet-700' : null
+						]}
+					>
+						<a href={pathname}>{text}</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</header>
