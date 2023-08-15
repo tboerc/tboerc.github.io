@@ -1,8 +1,6 @@
 ---
 title: 'Blog post exemplo'
 description: 'Isso é uma descrição de exemplo'
-tags:
-  - example
 language: 'pt'
 publishDate: 2023-08-14
 ---

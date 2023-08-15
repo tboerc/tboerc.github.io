@@ -26,6 +26,6 @@ if (!entry) {
 const { Content } = await entry.render()
 ---
 
-<BlogPostLayout {...entry.data}>
+<BlogPostLayout {...entry.data} body={entry.body}>
 	<Content />
 </BlogPostLayout>

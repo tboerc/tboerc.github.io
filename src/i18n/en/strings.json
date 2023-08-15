@@ -1,6 +1,14 @@
 {
+	"meta.by": "by Tiago Boer Casagrande",
+	"header.softwareEngineer": "Software engineer",
 	"menu.home": "Home",
 	"menu.contact": "Contact",
 	"menu.about": "About",
-	"menu.blog": "Blog"
+	"menu.blog": "Blog",
+
+	"footer.createdBy": "Created with ❤️ by",
+	"footer.built": "Built with",
+
+	"blog.postAbout": "Post about ",
+	"blog.read": "min read"
 }

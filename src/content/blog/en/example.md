@@ -1,8 +1,6 @@
 ---
 title: 'Example blog post'
 description: 'This is a example description'
-tags:
-  - example
 language: 'en'
 publishDate: 2023-08-14
 ---
