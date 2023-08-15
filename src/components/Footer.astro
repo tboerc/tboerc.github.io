@@ -1,26 +1,48 @@
 ---
 import Link from '@components/Link.astro'
+import { DEFAULT_LOCALE } from '@consts'
+import { i18n } from '@i18n/index'
 
 const ASTRO_URL = 'https://astro.build/'
 const GITHUB_PROFILE_URL = 'https://github.com/tboerc'
 const GITHUB_REPOSITORY_URL = 'https://github.com/tboerc/tboerc.github.io'
 const LINKEDIN_URL = 'https://www.linkedin.com/in/tiago-boer-casagrande'
 const NPM_PROFILE_URL = 'https://www.npmjs.com/~tboerc'
+
+const { t, locale } = i18n(Astro.url)
+const currentPathname = new URL(Astro.request.url).pathname
+
+const container = 'container flex gap-4 border-x border-black p-4 md:gap-6 md:px-6 2xl:max-w-screen-xl'
+
+const switchToLanguage = (currentPathname: string, language: string, locale: string) => {
+	if (language === locale.slice(0, 2)) return currentPathname
+	if (language === DEFAULT_LOCALE) return currentPathname.slice(3)
+	return '/' + language + currentPathname
+}
 ---
 
-<footer class="flex flex-col gap-4 border-t border-black p-4 sm:flex-row sm:items-center md:gap-6 md:p-6">
-	<div>
-		<div>
-			Created with ❤️ by
-			<Link href={GITHUB_REPOSITORY_URL}>Tiago</Link>
-		</div>
-		<div>
-			Built with <Link href={ASTRO_URL}>Astro</Link>
+<footer>
+	<div class="border-y border-black">
+		<div class={container}>
+			<Link href={switchToLanguage(currentPathname, 'en', locale)}>English (US)</Link>
+			<Link href={switchToLanguage(currentPathname, 'pt', locale)}>Português (Brasil)</Link>
 		</div>
 	</div>
-	<div class="flex gap-4 sm:ml-auto md:gap-6">
-		<Link href={LINKEDIN_URL}>LinkedIn</Link>
-		<Link href={GITHUB_PROFILE_URL}>Github</Link>
-		<Link href={NPM_PROFILE_URL}>npm</Link>
+	<div class:list={[container, 'flex-col py-6 sm:flex-row sm:items-center md:py-8']}>
+		<div>
+			<div>
+				{t('footer.createdBy')}
+				<Link href={GITHUB_REPOSITORY_URL}>Tiago</Link>
+			</div>
+			<div>
+				{t('footer.built')}
+				<Link href={ASTRO_URL}>Astro</Link>
+			</div>
+		</div>
+		<div class="flex gap-4 sm:ml-auto md:gap-6">
+			<Link href={LINKEDIN_URL}>LinkedIn</Link>
+			<Link href={GITHUB_PROFILE_URL}>Github</Link>
+			<Link href={NPM_PROFILE_URL}>npm</Link>
+		</div>
 	</div>
 </footer>

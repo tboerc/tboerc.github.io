@@ -1,65 +1,49 @@
 ---
-import { getLocale } from 'astro-i18n-aut'
-import { t, r } from '@i18n/index'
-import { DEFAULT_LOCALE } from '@consts'
+import { i18n } from '@i18n/index'
 
-const locale = getLocale(Astro.url)
+const { t, r } = i18n(Astro.url)
 const currentPathname = new URL(Astro.request.url).pathname
 
-const root = r('/', locale)
+const root = r('/')
 
 const menuItems = [
-	{ text: t('menu.home', locale), pathname: root },
-	{ text: t('menu.about', locale), pathname: r('/about/', locale) },
-	{ text: t('menu.contact', locale), pathname: r('/contact/', locale) },
-	{ text: t('menu.blog', locale), pathname: r('/blog/', locale) }
+	{ text: t('menu.home'), pathname: root },
+	{ text: t('menu.about'), pathname: r('/about/') },
+	{ text: t('menu.contact'), pathname: r('/contact/') },
+	{ text: t('menu.blog'), pathname: r('/blog/') }
 ]
+
+const container = 'container flex border-x border-black p-4 md:p-6 2xl:max-w-screen-xl'
 
 const isRouteActive = (pathname: string, currentPathname: string, root: string) => {
 	if (pathname === root) return currentPathname === pathname
 	return currentPathname.startsWith(pathname)
 }
-
-const switchToLanguage = (currentPathname: string, language: string, locale = DEFAULT_LOCALE) => {
-	if (language === locale) return currentPathname
-	if (language === DEFAULT_LOCALE) return currentPathname.slice(3)
-	return '/' + language + currentPathname
-}
 ---
 
 <header class="inline font-display font-semibold">
-	<div class="flex flex-col border-b border-black p-4 text-5xl uppercase md:p-6 md:text-6xl lg:text-7xl xl:text-8xl">
-		<span>Tiago Boer Casagrande</span>
-		<span class="self-end bg-violet-700 text-right text-white">Software engineer</span>
-	</div>
-	<nav class="sticky top-0 flex items-center overflow-auto border-b border-black bg-white p-4 md:p-6">
-		<ul class="flex gap-4 md:gap-6">
-			{
-				menuItems.map(({ text, pathname }) => (
-					<li
-						class:list={[
-							'text-xl uppercase underline md:text-2xl lg:text-3xl',
-							isRouteActive(pathname, currentPathname, root) ? 'text-violet-700' : null
-						]}
-					>
-						<a href={pathname}>{text}</a>
-					</li>
-				))
-			}
-		</ul>
-		<div class="ml-auto flex gap-4 font-sans font-normal">
-			<a
-				href={switchToLanguage(currentPathname, 'en', locale)}
-				class:list={['underline', { 'text-violet-700': !locale }]}
-			>
-				English
-			</a>
-			<a
-				href={switchToLanguage(currentPathname, 'pt', locale)}
-				class:list={['underline', { 'text-violet-700': locale === 'pt' }]}
-			>
-				Português
-			</a>
+	<div class="border-b border-black">
+		<div class:list={[container, 'flex-col text-5xl uppercase md:text-6xl lg:text-7xl xl:text-8xl']}>
+			<span>Tiago Boer Casagrande</span>
+			<span class="self-end bg-violet-800 text-right text-white">{t('header.softwareEngineer')}</span>
 		</div>
-	</nav>
+	</div>
+	<div class="sticky top-0 border-b border-black bg-white">
+		<nav class:list={[container, 'overflow-auto']}>
+			<ul class="flex gap-4 md:gap-6">
+				{
+					menuItems.map(({ text, pathname }) => (
+						<li
+							class:list={[
+								'text-xl uppercase underline md:text-2xl lg:text-3xl',
+								{ 'bg-violet-800 text-white no-underline': isRouteActive(pathname, currentPathname, root) }
+							]}
+						>
+							<a href={pathname}>{text}</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
 </header>

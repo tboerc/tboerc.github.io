@@ -1,10 +1,13 @@
+import { getLocale } from 'astro-i18n-aut'
+import { DEFAULT_LOCALE, LOCALES } from '@consts'
+
 import en from './en/strings.json'
 import pt from './pt/strings.json'
 
 type EN = keyof typeof en
 type PT = keyof typeof pt
 
-export const t = (key: EN | PT, locale?: string) => {
+const t = (locale?: string) => (key: EN | PT) => {
 	switch (locale) {
 		case 'pt':
 			return pt[key]
@@ -13,7 +16,16 @@ export const t = (key: EN | PT, locale?: string) => {
 	}
 }
 
-export const r = (route: string, locale?: string) => {
+const r = (locale?: string) => (route: string) => {
 	if (locale) return '/' + locale + route
 	return route
+}
+
+export const i18n = (url: URL) => {
+	const locale = getLocale(url)
+	return {
+		locale: LOCALES[locale ?? DEFAULT_LOCALE],
+		t: t(locale),
+		r: r(locale)
+	}
 }

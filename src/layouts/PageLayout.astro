@@ -3,7 +3,7 @@ import BaseLayout, { type Props } from '@layouts/BaseLayout.astro'
 ---
 
 <BaseLayout {...Astro.props}>
-	<main class="min-h-screen p-4 md:p-6">
+	<main class="container min-h-screen bg-white p-4 md:border-x md:border-black md:p-6 2xl:max-w-screen-xl">
 		<slot />
 	</main>
 </BaseLayout>

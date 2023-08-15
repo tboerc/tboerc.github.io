@@ -1,11 +1,14 @@
 ---
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
+import { i18n } from '@i18n/index'
 
 export type Props = {
 	title: string
 	description?: string
 }
+
+const { t } = i18n(Astro.url)
 
 const { title, description } = Astro.props
 ---
@@ -19,28 +22,32 @@ const { title, description } = Astro.props
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<title>{title} - by Tiago Boer Casagrande</title>
+		<title>{title} - {t('meta.by')}</title>
 		{description && <meta name="description" content={description} />}
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 		/>
 	</head>
-	<body class="fill">
-		<div class="container mx-auto border-x border-x-black bg-white">
-			<Header />
+	<body>
+		<Header />
+		<div class="background">
 			<slot />
-			<Footer />
 		</div>
+		<Footer />
 	</body>
 </html>
 
 <style>
-	.fill {
-		background-image: url('/fill.svg');
-		background-repeat: repeat;
+	.background {
+		background-color: #ffffff;
+		background-image: radial-gradient(#000000 2px, transparent 2px), radial-gradient(#000000 2px, #ffffff 2px);
+		background-size: 80px 80px;
+		background-position:
+			0 0,
+			40px 40px;
 	}
 </style>
