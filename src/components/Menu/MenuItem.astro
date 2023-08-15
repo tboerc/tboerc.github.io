@@ -1,5 +1,5 @@
 ---
-import Title from '@components/Title.astro'
+import { twMerge } from 'tailwind-merge'
 
 type Props = {
 	text: string
@@ -11,10 +11,10 @@ const { pathname, text, active } = Astro.props
 ---
 
 <li
-	class:list={[
-		'font-display text-xl font-semibold uppercase underline md:text-2xl',
-		{ 'bg-violet-800 text-white no-underline': active }
-	]}
+	class={twMerge(
+		'text-xl font-bold uppercase text-zinc-500 md:text-2xl hover:text-black',
+		active ? 'text-black' : null
+	)}
 >
 	<a href={pathname}>{text}</a>
 </li>

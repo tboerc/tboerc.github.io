@@ -1,0 +1,27 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types'
+import { cva } from 'class-variance-authority'
+import { twMerge } from 'tailwind-merge'
+
+const button = cva('uppercase px-6 py-2 w-fit', {
+	variants: {
+		type: {
+			outlined: 'border border-black hover:bg-black hover:text-white hover:transition-colors'
+		}
+	},
+	defaultVariants: {
+		type: 'outlined'
+	}
+})
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag
+	class?: string
+}>
+
+const { class: className, as: Tag = 'button', ...props } = Astro.props
+---
+
+<Tag {...props} class={twMerge(button({ className }))}>
+	<slot />
+</Tag>

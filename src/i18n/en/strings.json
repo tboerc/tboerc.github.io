@@ -11,6 +11,8 @@
 	"footer.createdBy": "Created with ❤️ by",
 	"footer.built": "Built with",
 
+	"blog.featured": "Featured",
+	"blog.allPosts": "All posts",
 	"blog.postAbout": "Post about ",
 	"blog.read": "min read"
 }

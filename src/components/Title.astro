@@ -3,11 +3,12 @@ import type { HTMLTag, Polymorphic } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { twMerge } from 'tailwind-merge'
 
-const title = cva('font-display font-semibold uppercase', {
+const title = cva('font-bold', {
 	variants: {
 		type: {
-			h1: 'text-5xl md:text-6xl lg:text-7xl xl:text-8xl',
-			h2: 'text-3xl md:text-4xl lg:text-5xl'
+			h1: 'uppercase text-5xl md:text-6xl lg:text-7xl',
+			h2: 'uppercase text-4xl md:text-5xl lg:text-6xl',
+			h3: 'text-xl md:text-2xl lg:text-3xl '
 		}
 	}
 })

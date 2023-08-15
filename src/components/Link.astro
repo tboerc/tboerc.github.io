@@ -15,7 +15,7 @@ const isExternal = href.startsWith('http')
 	href={href}
 	target={isExternal ? '_blank' : null}
 	rel={isExternal ? 'noopener noreferrer' : null}
-	class={twMerge('text-violet-800 underline', className)}
+	class={twMerge('underline', className)}
 >
 	<slot />
 </a>

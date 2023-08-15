@@ -1,11 +1,19 @@
 ---
+import { getCollection } from 'astro:content'
+import Title from '@components/Title.astro'
 import PageLayout from '@layouts/PageLayout.astro'
-import Link from '@components/Link.astro'
+import FeaturedList from '@components/Featured/FeaturedList.astro'
 import { i18n } from '@i18n/index'
 
-const { r } = i18n(Astro.url)
+const { t, locale } = i18n(Astro.url)
+
+const blogEntries = await getCollection('blog', (entry) => entry.slug.startsWith(locale.slice(0, 2) + '/'))
+const featured = blogEntries.filter((entry) => entry.data.tags?.includes('featured'))
 ---
 
-<PageLayout title="Blog">
-	<Link href={r('/blog/example/')}>Example post</Link>
+<PageLayout title="Blog" class="gap-6 md:gap-8">
+	<Title type="h2">{t('blog.featured')}</Title>
+	<FeaturedList list={featured} />
+
+	<Title type="h2">{t('blog.allPosts')}</Title>
 </PageLayout>
