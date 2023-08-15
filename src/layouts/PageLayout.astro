@@ -1,9 +1,19 @@
 ---
-import BaseLayout, { type Props } from '@layouts/BaseLayout.astro'
+import { twMerge } from 'tailwind-merge'
+import BaseLayout, { type Props as BaseLayoutProps } from '@layouts/BaseLayout.astro'
+
+type Props = { class?: string } & BaseLayoutProps
+
+const { class: className, ...baseLayoutProps } = Astro.props
 ---
 
-<BaseLayout {...Astro.props}>
-	<main class="container min-h-screen bg-white p-4 md:border-x md:border-black md:p-6 2xl:max-w-screen-xl">
+<BaseLayout {...baseLayoutProps}>
+	<main
+		class={twMerge(
+			'container flex min-h-screen flex-col bg-white p-4 md:border-x md:border-black md:p-6 2xl:max-w-screen-xl',
+			className
+		)}
+	>
 		<slot />
 	</main>
 </BaseLayout>

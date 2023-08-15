@@ -1,0 +1,20 @@
+---
+import Title from '@components/Title.astro'
+
+type Props = {
+	text: string
+	pathname: string
+	active: boolean
+}
+
+const { pathname, text, active } = Astro.props
+---
+
+<li
+	class:list={[
+		'font-display text-xl font-semibold uppercase underline md:text-2xl',
+		{ 'bg-violet-800 text-white no-underline': active }
+	]}
+>
+	<a href={pathname}>{text}</a>
+</li>

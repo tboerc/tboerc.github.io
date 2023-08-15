@@ -1,0 +1,25 @@
+---
+import Link from '@components/Link.astro'
+import { DEFAULT_LOCALE } from '@consts'
+import { i18n } from '@i18n/index'
+
+const { locale } = i18n(Astro.url)
+const currentPathname = new URL(Astro.request.url).pathname
+
+const locales = {
+	en: 'English (US)',
+	pt: 'Português (Brasil)'
+}
+
+const switchToLanguage = (currentPathname: string, language: string, locale: string) => {
+	if (language === locale.slice(0, 2)) return currentPathname
+	if (language === DEFAULT_LOCALE) return currentPathname.slice(3)
+	return '/' + language + currentPathname
+}
+---
+
+{
+	Object.entries(locales).map(([key, value]) => (
+		<Link href={switchToLanguage(currentPathname, key, locale)}>{value}</Link>
+	))
+}
