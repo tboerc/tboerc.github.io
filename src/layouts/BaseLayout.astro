@@ -29,25 +29,12 @@ const { title, description } = Astro.props
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 		/>
 	</head>
 	<body>
 		<Header />
-		<div class="dot-background">
-			<slot />
-		</div>
+		<slot />
 		<Footer />
 	</body>
 </html>
-
-<style>
-	.dot-background {
-		background-color: #ffffff;
-		background-image: radial-gradient(#000000 2px, transparent 2px), radial-gradient(#000000 2px, #ffffff 2px);
-		background-size: 80px 80px;
-		background-position:
-			0 0,
-			40px 40px;
-	}
-</style>
