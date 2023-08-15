@@ -1,34 +1,45 @@
 ---
-const menuItems = [
-	{ text: 'Home', pathname: '/' },
-	{ text: 'About', pathname: '/about' },
-	{ text: 'Contact', pathname: '/contact' },
-	{ text: 'Blog', pathname: '/blog' }
-]
+import { getLocale } from 'astro-i18n-aut'
+import { t, r } from '@i18n/index'
+import { DEFAULT_LOCALE } from '@consts'
 
+const locale = getLocale(Astro.url)
 const currentPathname = new URL(Astro.request.url).pathname
 
-const isRouteActive = (pathname: string, currentPathname: string) => {
-	if (pathname === '/') return currentPathname === pathname
+const root = r('/', locale)
+
+const menuItems = [
+	{ text: t('menu.home', locale), pathname: root },
+	{ text: t('menu.about', locale), pathname: r('/about/', locale) },
+	{ text: t('menu.contact', locale), pathname: r('/contact/', locale) },
+	{ text: t('menu.blog', locale), pathname: r('/blog/', locale) }
+]
+
+const isRouteActive = (pathname: string, currentPathname: string, root: string) => {
+	if (pathname === root) return currentPathname === pathname
 	return currentPathname.startsWith(pathname)
+}
+
+const switchToLanguage = (currentPathname: string, language: string, locale = DEFAULT_LOCALE) => {
+	if (language === locale) return currentPathname
+	if (language === DEFAULT_LOCALE) return currentPathname.slice(3)
+	return '/' + language + currentPathname
 }
 ---
 
-<header class="inline font-semibold">
-	<div
-		class="flex flex-col border-b border-black p-4 font-display text-5xl uppercase md:p-6 md:text-6xl lg:text-7xl xl:text-8xl"
-	>
+<header class="inline font-display font-semibold">
+	<div class="flex flex-col border-b border-black p-4 text-5xl uppercase md:p-6 md:text-6xl lg:text-7xl xl:text-8xl">
 		<span>Tiago Boer Casagrande</span>
 		<span class="self-end bg-violet-700 text-right text-white">Software engineer</span>
 	</div>
-	<nav class="sticky top-0 overflow-auto border-b border-black bg-white p-4 md:p-6">
+	<nav class="sticky top-0 flex items-center overflow-auto border-b border-black bg-white p-4 md:p-6">
 		<ul class="flex gap-4 md:gap-6">
 			{
 				menuItems.map(({ text, pathname }) => (
 					<li
 						class:list={[
-							'font-display text-xl uppercase md:text-2xl lg:text-3xl',
-							isRouteActive(pathname, currentPathname) ? 'text-violet-700' : null
+							'text-xl uppercase underline md:text-2xl lg:text-3xl',
+							isRouteActive(pathname, currentPathname, root) ? 'text-violet-700' : null
 						]}
 					>
 						<a href={pathname}>{text}</a>
@@ -36,5 +47,19 @@ const isRouteActive = (pathname: string, currentPathname: string) => {
 				))
 			}
 		</ul>
+		<div class="ml-auto flex gap-4 font-sans font-normal">
+			<a
+				href={switchToLanguage(currentPathname, 'en', locale)}
+				class:list={['underline', { 'text-violet-700': !locale }]}
+			>
+				English
+			</a>
+			<a
+				href={switchToLanguage(currentPathname, 'pt', locale)}
+				class:list={['underline', { 'text-violet-700': locale === 'pt' }]}
+			>
+				Português
+			</a>
+		</div>
 	</nav>
 </header>
