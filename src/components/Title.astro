@@ -1,0 +1,26 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { twMerge } from 'tailwind-merge'
+
+const title = cva('font-display font-semibold uppercase', {
+	variants: {
+		type: {
+			h1: 'text-5xl md:text-6xl lg:text-7xl xl:text-8xl',
+			h2: 'text-3xl md:text-4xl lg:text-5xl'
+		}
+	}
+})
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag
+	class?: string
+}> &
+	VariantProps<typeof title>
+
+const { type, class: className, as: Tag = type } = Astro.props
+---
+
+<Tag class={twMerge(title({ type, className }))}>
+	<slot />
+</Tag>

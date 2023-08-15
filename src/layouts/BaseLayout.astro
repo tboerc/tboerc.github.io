@@ -34,7 +34,7 @@ const { title, description } = Astro.props
 	</head>
 	<body>
 		<Header />
-		<div class="background">
+		<div class="dot-background">
 			<slot />
 		</div>
 		<Footer />
@@ -42,7 +42,7 @@ const { title, description } = Astro.props
 </html>
 
 <style>
-	.background {
+	.dot-background {
 		background-color: #ffffff;
 		background-image: radial-gradient(#000000 2px, transparent 2px), radial-gradient(#000000 2px, #ffffff 2px);
 		background-size: 80px 80px;
