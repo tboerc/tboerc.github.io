@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config'
 import { i18n } from 'astro-i18n-aut/integration'
 import tailwind from '@astrojs/tailwind'
 
-import { DEFAULT_LOCALE, LOCALES } from './src/consts'
+import { DEFAULT_LOCALE, LOCALES } from './src/i18n'
 
 // https://astro.build/config
 export default defineConfig({
