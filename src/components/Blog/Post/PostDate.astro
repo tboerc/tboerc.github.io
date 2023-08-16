@@ -1,0 +1,17 @@
+---
+import type { BlogSchema } from '@schemas/index'
+import { i18n } from '@i18n/index'
+
+type Props = {
+	publishDate: BlogSchema['publishDate']
+}
+
+const { locale } = i18n(Astro.url)
+
+const { publishDate } = Astro.props
+---
+
+<span class="text-sm font-bold uppercase text-zinc-500 sm:text-base">
+	{publishDate.toLocaleDateString(locale, { dateStyle: 'medium' })}
+	<slot />
+</span>

@@ -1,12 +1,13 @@
 ---
 import type { BlogSchema } from '@schemas/index'
-import BaseLayout from '@layouts/BaseLayout.astro'
 import Title from '@components/Title.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import PostDate from '@components/Blog/Post/PostDate.astro'
 import { i18n } from '@i18n/index'
 
 type Props = { body: string } & BlogSchema
 
-const { t, locale } = i18n(Astro.url)
+const { t } = i18n(Astro.url)
 
 const { title, description, body, image, publishDate } = Astro.props
 
@@ -23,13 +24,11 @@ const readTime = (text: string) => {
 			<Title as="h1" type="h2">
 				{title}
 			</Title>
-
-			<p class="mt-1 lg:text-xl">{description}</p>
-
-			<span class="text-sm font-bold uppercase text-zinc-500 sm:text-base">
-				{publishDate.toLocaleDateString(locale, { dateStyle: 'medium' })} - {readTime(body)}
+			<PostDate publishDate={publishDate}>
+				- {readTime(body)}{' '}
 				{t('blog.read')}
-			</span>
+			</PostDate>
+			<p class="mt-1 lg:text-xl">{description}</p>
 		</div>
 
 		<article

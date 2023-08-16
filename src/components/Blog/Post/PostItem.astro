@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Title from '@components/Title.astro'
+import Button from '@components/Button.astro'
+import PostDate from '@components/Blog/Post/PostDate.astro'
+import { i18n } from '@i18n/index'
+
+type Props = {
+	item: CollectionEntry<'blog'>
+}
+
+const { r } = i18n(Astro.url)
+
+const { item } = Astro.props
+
+const url = item.slug.slice(3)
+---
+
+<li class="flex flex-shrink-0 items-center px-4 py-6 last:pb-0 md:px-6 md:py-8">
+	<div class="flex flex-col">
+		<Title type="h3">{item.data.title}</Title>
+		<PostDate publishDate={item.data.publishDate} />
+		<p class="mt-1 max-w-prose">{item.data.description}</p>
+		<Button as="a" href={r(`/blog/${url}/`)} class="mt-4">See more</Button>
+	</div>
+</li>
