@@ -9,8 +9,7 @@
 		"build": "astro check && tsc --noEmit && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"fmt": "prettier --write \"src/**/*.{md,ts,astro}\"",
-		"deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+		"fmt": "prettier --write \"src/**/*.{md,ts,astro}\""
 	},
 	"dependencies": {
 		"@astrojs/tailwind": "^4.0.0",
@@ -21,7 +20,6 @@
 		"prettier": "^3.0.1",
 		"prettier-plugin-astro": "^0.11.0",
 		"prettier-plugin-tailwindcss": "^0.5.2",
-		"push-dir": "^0.4.1",
 		"tailwind-merge": "^1.14.0",
 		"tailwindcss": "^3.3.3"
 	}
