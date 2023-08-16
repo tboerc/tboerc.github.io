@@ -9,7 +9,7 @@ import { i18n } from '@i18n/index'
 const { t, locale } = i18n(Astro.url)
 
 const blogEntries = await getCollection('blog', (entry) => entry.slug.startsWith(locale.slice(0, 2) + '/'))
-const featured = blogEntries.filter((entry) => entry.data.tags?.includes('featured'))
+const featured = blogEntries.filter((entry) => entry.data.featured).slice(0, 2)
 ---
 
 <PageLayout title="Blog" class="gap-6 md:gap-8">
