@@ -9,7 +9,7 @@ type Props = {
 	item: CollectionEntry<'blog'>
 }
 
-const { r } = i18n(Astro.url)
+const { r, t } = i18n(Astro.url)
 
 const { item } = Astro.props
 
@@ -21,5 +21,5 @@ const url = item.slug.slice(3)
 	<Title type="h3" class="mt-4 md:mt-6">{item.data.title}</Title>
 	<PostDate publishDate={item.data.publishDate} />
 	<p class="mb-4 mt-1">{item.data.description}</p>
-	<Button as="a" href={r(`/blog/${url}/`)} class="mt-auto">See more</Button>
+	<Button as="a" href={r(`/blog/${url}/`)} class="mt-auto">{t('blog.seeMore')}</Button>
 </li>

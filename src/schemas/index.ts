@@ -8,6 +8,7 @@ export const blogSchema = z.object({
 		alt: z.string()
 	}),
 	language: z.enum(['en', 'pt']),
+	featured: z.boolean().optional(),
 	tags: z.array(z.string()).optional(),
 	publishDate: z.date()
 })
