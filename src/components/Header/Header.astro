@@ -1,5 +1,5 @@
 ---
-import Container from '@components/Container.astro'
+import BorderContainer from '@components/BorderContainer.astro'
 import MenuList from '@components/Header/Menu/MenuList.astro'
 import Title from '@components/Title.astro'
 import { i18n } from '@i18n/index'
@@ -8,13 +8,13 @@ const { t } = i18n(Astro.url)
 ---
 
 <header class="inline">
-	<Container parentClass="border-b" class="flex-col sm:border-x sm:border-black">
+	<BorderContainer parentClass="border-b" class="flex-col sm:border-x sm:border-black">
 		<Title as="span" type="h1">Tiago Boer Casagrande</Title>
 		<Title as="span" type="h1" class="text-right">
 			<span class="bg-black leading-tight text-white">{t('header.softwareEngineer')}</span>
 		</Title>
-	</Container>
-	<Container as="nav" parentClass="sticky top-0 border-b bg-white" class="overflow-auto md:py-4">
+	</BorderContainer>
+	<BorderContainer as="nav" parentClass="sticky top-0 border-b bg-white" class="overflow-auto md:py-4">
 		<MenuList />
-	</Container>
+	</BorderContainer>
 </header>
