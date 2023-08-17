@@ -5,7 +5,7 @@ import { i18n } from '@i18n/index'
 const { t, r } = i18n(Astro.url)
 
 const root = r('/')
-const currentPathname = new URL(Astro.request.url).pathname
+const currentPathname = Astro.url.pathname
 
 const menuItems = [
 	{ text: t('menu.home'), pathname: root },
