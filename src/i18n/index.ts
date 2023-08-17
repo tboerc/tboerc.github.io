@@ -3,12 +3,25 @@ import { getLocale } from 'astro-i18n-aut'
 import en from './en/strings.json'
 import pt from './pt/strings.json'
 
+type Locales = 'pt' | 'en'
+
 type EN = keyof typeof en
 type PT = keyof typeof pt
-type Locale = keyof Omit<typeof LOCALES, 'en'>
 
-const t = (locale?: Locale) => (key: EN | PT) => {
-	switch (locale) {
+export const DEFAULT_LOCALE: Locales = 'en'
+
+export const LOCALES: Record<Locales, string> = {
+	en: 'en-US',
+	pt: 'pt-BR'
+}
+
+export const LOCALES_FULL: Record<Locales, string> = {
+	en: 'English (US)',
+	pt: 'Português (Brasil)'
+}
+
+const t = (localeKey: Locales) => (key: EN | PT) => {
+	switch (localeKey) {
 		case 'pt':
 			return pt[key]
 		default:
@@ -16,28 +29,24 @@ const t = (locale?: Locale) => (key: EN | PT) => {
 	}
 }
 
-const r = (locale?: Locale) => (route: string) => {
-	if (locale) return '/' + locale + route
-	return route
+const r = (localeKey: Locales) => (route: string) => {
+	if (localeKey === DEFAULT_LOCALE) return route
+	return '/' + localeKey + route
 }
 
-export const DEFAULT_LOCALE = 'en'
-
-export const LOCALES = {
-	en: 'en-US',
-	pt: 'pt-BR'
-}
-
-export const LOCALES_FULL: Record<keyof typeof LOCALES, string> = {
-	en: 'English (US)',
-	pt: 'Português (Brasil)'
+const switchPathLanguageTo = (localeKey: Locales) => (currentPathname: string, language: string) => {
+	if (language === localeKey) return currentPathname
+	if (language === DEFAULT_LOCALE) return currentPathname.slice(3)
+	return '/' + language + currentPathname
 }
 
 export const i18n = (url: URL) => {
-	const locale = getLocale(url) as Locale | undefined
+	const localeKey = (getLocale(url) ?? DEFAULT_LOCALE) as Locales
 	return {
-		locale: LOCALES[locale ?? DEFAULT_LOCALE],
-		t: t(locale),
-		r: r(locale)
+		localeKey,
+		locale: LOCALES[localeKey],
+		t: t(localeKey),
+		r: r(localeKey),
+		switchPathLanguageTo: switchPathLanguageTo(localeKey)
 	}
 }

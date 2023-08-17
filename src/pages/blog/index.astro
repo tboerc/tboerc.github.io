@@ -7,9 +7,9 @@ import PostList from '@components/Blog/Post/PostList.astro'
 import FeaturedList from '@components/Blog/Featured/FeaturedList.astro'
 import { i18n } from '@i18n/index'
 
-const { t, locale } = i18n(Astro.url)
+const { t, localeKey } = i18n(Astro.url)
 
-const blogEntries = await getCollection('blog', (entry) => entry.slug.startsWith(locale.slice(0, 2) + '/'))
+const blogEntries = await getCollection('blog', (entry) => entry.slug.startsWith(localeKey + '/'))
 const featured = blogEntries.filter((entry) => entry.data.featured).slice(0, 2)
 ---
 
