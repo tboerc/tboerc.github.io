@@ -1,5 +1,22 @@
 ---
+import Section from '@components/Section.astro'
 import PageLayout from '@layouts/PageLayout.astro'
+import Title from '@components/Title.astro'
+import { i18n } from '@i18n/index'
+
+const { t } = i18n(Astro.url)
 ---
 
-<PageLayout title="Home">Home</PageLayout>
+<PageLayout title={t('menu.home')}>
+	<Section class="flex flex-col sm:flex-row">
+		<Title
+			type="h1"
+			set:html={t('home.bright')}
+			class="overflow-hidden hyphens-manual break-words px-4 py-8 sm:flex-1 sm:self-center md:px-6 lg:flex-[2]"
+		/>
+		<p
+			set:html={t('home.bright.p')}
+			class="border-t border-black px-4 py-8 text-lg sm:flex-1 sm:border-l sm:border-t-0 md:px-6 md:text-xl lg:pl-8 lg:text-2xl"
+		/>
+	</Section>
+</PageLayout>

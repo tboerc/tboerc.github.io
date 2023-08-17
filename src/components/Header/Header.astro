@@ -10,8 +10,8 @@ const { t } = i18n(Astro.url)
 <header class="inline">
 	<Container parentClass="border-b" class="flex-col sm:border-x sm:border-black">
 		<Title as="span" type="h1">Tiago Boer Casagrande</Title>
-		<Title as="span" type="h1" class="bg-zinc-500 text-right text-white">
-			{t('header.softwareEngineer')}
+		<Title as="span" type="h1" class="text-right">
+			<span class="bg-black leading-tight text-white">{t('header.softwareEngineer')}</span>
 		</Title>
 	</Container>
 	<Container as="nav" parentClass="sticky top-0 border-b bg-white" class="overflow-auto md:py-4">

@@ -11,6 +11,9 @@
 	"footer.createdBy": "Criado com ❤️ por",
 	"footer.built": "Construído com",
 
+	"home.bright": "Um <span class=\"bg-black text-white leading-tight\">ta&shy;len&shy;to&shy;so</span><br />de&shy;sen&shy;vol&shy;ve&shy;dor<br />frontend web<br />do Brasil",
+	"home.bright.p": "Sou um desenvolvedor e estudante altamente motivado do Brasil. Eu adoro construir código que prioriza acessibilidade, responsividade e desempenho. Além disso, também sou um grande fã de tudo relacionado a código aberto.<br /><br />Tenho construído aplicações web há cerca de 4 anos e ainda adoro. Aprendendo algo novo toda semana. Atualmente, focado no desenvolvimento frontend com um pouco de desenvolvimento backend também.",
+
 	"blog.featured": "Destaque",
 	"blog.allPosts": "Todas as publicações",
 	"blog.postAbout": "Post sobre ",

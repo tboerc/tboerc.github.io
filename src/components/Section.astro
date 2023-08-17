@@ -7,6 +7,6 @@ type Props = HTMLAttributes<'section'>
 const { class: className, ...props } = Astro.props
 ---
 
-<section {...props} class={twMerge('container md:min-h-screen 2xl:max-w-screen-xl', className)}>
+<section {...props} class={twMerge('container 2xl:max-w-screen-xl', className)}>
 	<slot />
 </section>
