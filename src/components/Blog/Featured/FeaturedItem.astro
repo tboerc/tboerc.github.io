@@ -16,7 +16,7 @@ const { item } = Astro.props
 const url = item.slug.slice(3)
 ---
 
-<li class="flex flex-shrink-0 flex-col px-4 py-6 sm:flex-1 sm:p-0">
+<li class="flex flex-shrink-0 flex-col p-4 sm:flex-1 sm:p-0">
 	<img src={item.data.image.src} alt={item.data.image.alt} class="max-h-72 object-cover md:max-h-none" />
 	<Title type="h3" class="mt-4 md:mt-6">{item.data.title}</Title>
 	<PostDate publishDate={item.data.publishDate} />

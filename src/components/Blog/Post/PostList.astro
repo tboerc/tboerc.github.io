@@ -9,6 +9,6 @@ type Props = {
 const { list } = Astro.props
 ---
 
-<ul class="-mx-4 flex flex-col divide-y divide-solid divide-black border-t border-black md:-mx-6">
+<ul class="flex flex-col divide-y divide-solid divide-black">
 	{list.map((item) => <PostItem item={item} />)}
 </ul>

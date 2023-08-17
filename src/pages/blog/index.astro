@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import Title from '@components/Title.astro'
+import Section from '@components/Section.astro'
 import PageLayout from '@layouts/PageLayout.astro'
 import PostList from '@components/Blog/Post/PostList.astro'
 import FeaturedList from '@components/Blog/Featured/FeaturedList.astro'
@@ -12,10 +13,12 @@ const blogEntries = await getCollection('blog', (entry) => entry.slug.startsWith
 const featured = blogEntries.filter((entry) => entry.data.featured).slice(0, 2)
 ---
 
-<PageLayout title="Blog" class="gap-6 md:gap-8">
-	<Title type="h2">{t('blog.featured')}</Title>
-	<FeaturedList list={featured} />
+<PageLayout title="Blog">
+	<Section class="flex flex-col pb-6 md:pb-8">
+		<Title type="h2" class="border-b border-black px-4 py-6 md:px-6 md:py-8">{t('blog.featured')}</Title>
+		<FeaturedList list={featured} />
 
-	<Title type="h2">{t('blog.allPosts')}</Title>
-	<PostList list={blogEntries} />
+		<Title type="h2" class="border-y border-black px-4 py-6 md:px-6 md:py-8">{t('blog.allPosts')}</Title>
+		<PostList list={blogEntries} />
+	</Section>
 </PageLayout>

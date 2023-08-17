@@ -10,7 +10,7 @@ const { list } = Astro.props
 ---
 
 <ul
-	class="-mx-4 flex flex-col divide-y divide-solid divide-black border-y border-black sm:flex-row sm:gap-4 sm:divide-y-0 sm:p-4 md:-mx-6 md:gap-6 md:p-6"
+	class="flex flex-col divide-y divide-solid divide-black sm:flex-row sm:gap-6 sm:divide-y-0 sm:px-4 sm:py-6 md:gap-8 md:px-6 md:py-8"
 >
 	{list.map((item) => <FeaturedItem item={item} />)}
 </ul>
