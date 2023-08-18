@@ -12,17 +12,30 @@ const { t, r } = i18n(Astro.url)
 	<Section class="flex flex-col sm:flex-row">
 		<Title
 			type="h1"
-			set:html={t('home.bright')}
+			set:html={t('home.title')}
 			class="overflow-hidden hyphens-manual break-words px-4 py-8 sm:flex-1 sm:self-center md:px-6 lg:flex-[2]"
 		/>
 		<div
 			class="flex flex-col border-t border-black px-4 py-8 sm:flex-1 sm:border-l sm:border-t-0 md:px-6 lg:py-14 lg:pl-8"
 		>
-			<p set:html={t('home.bright.p')} class="text-lg md:text-xl lg:text-2xl" />
+			<p set:html={t('home.description')} class="text-lg md:text-xl lg:text-2xl" />
 			<div class="mt-8 flex gap-4">
 				<Button as="a" href={r('/about/')} class="w-36" size="large" type="filled">{t('menu.about')}</Button>
 				<Button as="a" href={r('/contact/')} class="w-36" size="large">{t('menu.contact')}</Button>
 			</div>
 		</div>
 	</Section>
+	<div class="bg-black text-center text-white">
+		<Section class="px-4 py-8 sm:border-x sm:border-white md:px-6 lg:py-14">
+			<Title type="h2" class="normal-case">
+				{t('home.blog.checkout')}<br />
+				<a href={r('/blog/')} class="bg-white uppercase leading-tight text-black">
+					{t('blog.name')}
+				</a>
+			</Title>
+			<p class="mt-8 text-lg md:text-xl lg:mt-14 lg:text-2xl">
+				{t('home.blog.description')}
+			</p>
+		</Section>
+	</div>
 </PageLayout>
