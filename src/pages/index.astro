@@ -1,10 +1,11 @@
 ---
 import Section from '@components/Section.astro'
 import PageLayout from '@layouts/PageLayout.astro'
+import Button from '@components/Button.astro'
 import Title from '@components/Title.astro'
 import { i18n } from '@i18n/index'
 
-const { t } = i18n(Astro.url)
+const { t, r } = i18n(Astro.url)
 ---
 
 <PageLayout title={t('menu.home')}>
@@ -14,9 +15,14 @@ const { t } = i18n(Astro.url)
 			set:html={t('home.bright')}
 			class="overflow-hidden hyphens-manual break-words px-4 py-8 sm:flex-1 sm:self-center md:px-6 lg:flex-[2]"
 		/>
-		<p
-			set:html={t('home.bright.p')}
-			class="border-t border-black px-4 py-8 text-lg sm:flex-1 sm:border-l sm:border-t-0 md:px-6 md:text-xl lg:pl-8 lg:text-2xl"
-		/>
+		<div
+			class="flex flex-col border-t border-black px-4 py-8 sm:flex-1 sm:border-l sm:border-t-0 md:px-6 lg:py-14 lg:pl-8"
+		>
+			<p set:html={t('home.bright.p')} class="text-lg md:text-xl lg:text-2xl" />
+			<div class="mt-8 flex gap-4">
+				<Button as="a" href={r('/about/')} class="w-36" size="large" type="filled">{t('menu.about')}</Button>
+				<Button as="a" href={r('/contact/')} class="w-36" size="large">{t('menu.contact')}</Button>
+			</div>
+		</div>
 	</Section>
 </PageLayout>
