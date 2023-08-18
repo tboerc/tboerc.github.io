@@ -3,11 +3,13 @@ import type { HTMLTag, Polymorphic } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { twMerge } from 'tailwind-merge'
 
-const button = cva('uppercase px-6 py-3 w-fit text-center', {
+const button = cva('border uppercase px-6 py-3 w-fit text-center hover:transition-colors', {
 	variants: {
 		type: {
-			outlined: 'border border-black hover:bg-black hover:text-white hover:transition-colors',
-			filled: 'border border-black bg-black text-white hover:bg-white hover:text-black hover:transition-colors'
+			outlined:
+				'text-black border-black hover:bg-black hover:text-white dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-black',
+			filled:
+				'border-black bg-black text-white hover:bg-white hover:text-black dark:text-black dark:bg-white dark:border-white dark:hover:bg-black dark:hover:text-white'
 		},
 		size: {
 			normal: 'text-base',
