@@ -9,8 +9,7 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Poppins', defaultTheme.fontFamily.sans],
-				display: ['Oswald', defaultTheme.fontFamily.sans]
+				sans: ['Poppins', defaultTheme.fontFamily.sans]
 			}
 		}
 	},
