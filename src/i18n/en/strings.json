@@ -13,7 +13,10 @@
 
 	"home.bright": "A <span class=\"bg-black text-white leading-tight\">bright</span><br />front&shy;end<br />web devel&shy;op&shy;er<br />from Bra&shy;zil",
 	"home.bright.p": "I'm a highly motivated developer and student from Brazil. I adore constructing code that prioritizes accessibility, responsiveness, and optimal performance. Furthermore, I'm also a huge fan of all things open-source.<br /><br />I have been building web apps for about 4 years and still love it. Learning something new every week. Currently focused on frontend development and a bit of backend development as well.",
+	"home.checkout": "Check out my blog:",
+	"home.description": "Unlock the frontiers of tech and design. Dive into insights, trends, and creativity at Front Report",
 
+	"blog.title": "Front Report",
 	"blog.featured": "Featured",
 	"blog.allPosts": "All posts",
 	"blog.postAbout": "Post about ",

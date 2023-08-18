@@ -13,7 +13,10 @@
 
 	"home.bright": "Um <span class=\"bg-black text-white leading-tight\">ta&shy;len&shy;to&shy;so</span><br />de&shy;sen&shy;vol&shy;ve&shy;dor<br />frontend web<br />do Brasil",
 	"home.bright.p": "Sou um desenvolvedor e estudante altamente motivado do Brasil. Eu adoro construir código que prioriza acessibilidade, responsividade e desempenho. Além disso, também sou um grande fã de tudo relacionado a código aberto.<br /><br />Tenho construído aplicações web há cerca de 4 anos e ainda adoro. Aprendendo algo novo toda semana. Atualmente, focado no desenvolvimento frontend com um pouco de desenvolvimento backend também.",
+	"home.checkout": "Dê uma olhada no meu blog:",
+	"home.description": "Desbrave as fronteiras da tecnologia e do design. Mergulhe em insights, tendências e criatividade no Front Report",
 
+	"blog.title": "Front Report",
 	"blog.featured": "Destaque",
 	"blog.allPosts": "Todas as publicações",
 	"blog.postAbout": "Post sobre ",

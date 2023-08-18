@@ -25,4 +25,17 @@ const { t, r } = i18n(Astro.url)
 			</div>
 		</div>
 	</Section>
+	<div class="bg-black text-center text-white">
+		<Section class="px-4 py-8 md:px-6 lg:py-14">
+			<Title type="h2" class="normal-case">
+				{t('home.checkout')}<br />
+				<a href={r('/blog/')} class="bg-white uppercase leading-tight text-black">
+					{t('blog.title')}
+				</a>
+			</Title>
+			<p class="mt-8 text-lg md:text-xl lg:mt-14 lg:text-2xl">
+				{t('home.description')}
+			</p>
+		</Section>
+	</div>
 </PageLayout>
