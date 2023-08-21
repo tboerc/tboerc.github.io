@@ -4,10 +4,11 @@
 		"baseUrl": ".",
 		"verbatimModuleSyntax": true,
 		"paths": {
+			"@assets/*": ["src/assets/*"],
 			"@components/*": ["src/components/*"],
+			"@i18n/*": ["src/i18n/*"],
 			"@layouts/*": ["src/layouts/*"],
-			"@schemas/*": ["src/schemas/*"],
-			"@i18n/*": ["src/i18n/*"]
+			"@schemas/*": ["src/schemas/*"]
 		}
 	}
 }

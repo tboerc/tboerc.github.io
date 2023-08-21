@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, sharpImageService } from 'astro/config'
 import { i18n } from 'astro-i18n-aut/integration'
 import tailwind from '@astrojs/tailwind'
 
@@ -18,5 +18,11 @@ export default defineConfig({
 			defaultLocale: DEFAULT_LOCALE,
 			redirectDefaultLocale: false
 		})
-	]
+	],
+	experimental: {
+		assets: true
+	},
+	image: {
+		service: sharpImageService()
+	}
 })
