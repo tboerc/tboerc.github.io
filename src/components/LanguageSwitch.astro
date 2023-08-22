@@ -1,6 +1,6 @@
 ---
 import Link from '@components/Link.astro'
-import { i18n, DEFAULT_LOCALE, LOCALES_FULL } from '@i18n/index'
+import { i18n, LOCALES_FULL } from '@i18n/index'
 
 const { switchPathLanguageTo } = i18n(Astro.url)
 const currentPathname = new URL(Astro.request.url).pathname

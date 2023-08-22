@@ -1,0 +1,13 @@
+role: Full Stack Developer
+company:
+  title: Hybriun Desenvolvimento
+  href: https://hybriun.com.br
+period:
+  from: 2019-09-01
+  to: 2021-03-01
+location: Americana, São Paulo, Brazil
+description:
+  - Developed web, mobile applications, and APIs using technologies such as React, React Native, Express, and PostgreSQL.
+  - Led the end-to-end creation of mobile applications, from inception to deployment on app stores.
+  - Implemented innovative design patterns and integrated push notifications to enhance the user experience.
+  - Provided consistent support and guidance to fellow developers within the team.

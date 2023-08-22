@@ -1,0 +1,11 @@
+role: Full Stack Developer
+company:
+  title: Qyon
+  href: https://www.qyon.com/
+period:
+  from: 2021-03-01
+  to: 2021-05-01
+location: Americana, São Paulo, Brasil
+description:
+  - Implementei funcionalidades relacionadas ao PIX em um aplicativo bancário para dispositivos móveis.
+  - Iniciei o processo de refatoração de um aplicativo interno para melhorar sua estrutura de código, manutenibilidade e desempenho.
