@@ -8,13 +8,13 @@ const { t } = i18n(Astro.url)
 ---
 
 <header class="inline">
-	<BorderContainer parentClass="border-b dot-background" class="flex-col">
+	<BorderContainer parentClass="border-b" class="flex-col">
 		<Title as="span" type="h1">Tiago Boer Casagrande</Title>
 		<Title as="span" type="h1" class="text-right">
 			<span class="bg-black leading-tight text-white">{t('header.softwareEngineer')}</span>
 		</Title>
 	</BorderContainer>
-	<BorderContainer as="nav" parentClass="sticky top-0 border-b bg-white" class="overflow-auto md:py-4">
+	<BorderContainer as="nav" parentClass="z-10 sticky top-0 border-b bg-white" class="overflow-auto md:py-4">
 		<MenuList />
 	</BorderContainer>
 </header>
