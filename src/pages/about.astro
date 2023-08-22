@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import Title from '@components/Title.astro'
 import Section from '@components/Section.astro'
 import PageLayout from '@layouts/PageLayout.astro'
+import Paragraph from '@components/Paragraph.astro'
 import { i18n } from '@i18n/index'
 
 import me from '@assets/me.jpeg'
@@ -16,15 +17,20 @@ const { t } = i18n(Astro.url)
 			<div class="flex-shrink-0 bg-black sm:flex-1">
 				<div class="center-me px-4 py-8 sm:sticky sm:top-[var(--center-offset)] sm:px-0">
 					<Image src={me} alt="A image of the developer" />
-					<Title type="h2" class="mt-4 text-white md:mt-6">{t('about.who')}</Title>
-					<Title type="h2" class="text-neutral-400">{t('about.story')}</Title>
+					<Title type="h2" class="mt-4 text-white md:mt-6">{t('about.sticky.who')}</Title>
+					<Title type="h2" class="text-neutral-400">{t('about.sticky.story')}</Title>
 				</div>
 			</div>
 
 			<div class="flex-shrink-0 sm:flex-1">
-				<div class="px-4 py-8 sm:px-0">
-					<div class="h-screen">THINGS</div>
-					<div class="h-screen">THINGS</div>
+				<div class="flex flex-col gap-8 px-4 py-8 sm:px-0">
+					<Title type="h2">{t('about.story.title')}</Title>
+					<Paragraph>{t('about.story.p.1')}</Paragraph>
+					<Paragraph>{t('about.story.p.2')}</Paragraph>
+					<Paragraph>{t('about.story.p.3')}</Paragraph>
+
+					<Title type="h2">Career</Title>
+					<Title type="h2">Skills</Title>
 				</div>
 			</div>
 		</Section>
