@@ -1,0 +1,12 @@
+role: Software Engineer
+company:
+  title: Mesa Mobile Thinking
+  href: https://www.mesainc.com.br
+period:
+  from: 2022-06-01
+  to: Presente
+location: Recife, Pernambuco, Brasil
+description:
+  - Como líder técnico da equipe de front-end, supervisiono as melhores práticas de código da nossa equipe, planejo e atribuo tarefas, e apresento novos recursos ao cliente.
+  - Desenvolvi um painel administrativo robusto e confiável para uma loja de produtos fitness utilizando Nuxt.js, Cypress e outras ferramentas.
+  - Implementei novos processos de desenvolvimento para entregar um código de maior qualidade.

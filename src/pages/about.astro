@@ -1,8 +1,59 @@
 ---
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import Title from '@components/Title.astro'
 import Section from '@components/Section.astro'
 import PageLayout from '@layouts/PageLayout.astro'
+import WorkExperienceList from '@components/WorkExperience/WorkExperienceList.astro'
+import { i18n } from '@i18n/index'
+
+import me from '@assets/me.jpeg'
+
+const { t, localeKey } = i18n(Astro.url)
+
+const list = await getCollection('work', (entry) => entry.id.startsWith(localeKey + '/'))
+list.sort((a, b) => b.data.period.from.getTime() - a.data.period.from.getTime())
 ---
 
-<PageLayout title="About">
-	<Section>About</Section>
+<PageLayout title={t('menu.about')}>
+	<div class="sm:bg-gradient-to-r sm:from-black sm:from-50% sm:to-white sm:to-50%">
+		<Section class="flex flex-col sm:flex-row sm:gap-16 sm:px-4 md:px-6 md:text-lg lg:text-xl">
+			<div class="flex-shrink-0 bg-black sm:flex-1">
+				<div class="center-me px-4 py-8 sm:sticky sm:top-[var(--center-offset)] sm:px-0">
+					<Image src={me} alt="A image of the developer" />
+					<Title type="h2" class="mt-4 text-white md:mt-6">{t('about.sticky.who')}</Title>
+					<Title type="h2" class="text-neutral-400">{t('about.sticky.story')}</Title>
+				</div>
+			</div>
+
+			<div class="flex flex-shrink-0 flex-col gap-6 px-4 py-8 sm:flex-1 sm:px-0">
+				<Title type="h2" class="mb-2">{t('about.story.title')}</Title>
+				<p>{t('about.story.p.1')}</p>
+				<p>{t('about.story.p.2')}</p>
+				<p>{t('about.story.p.3')}</p>
+
+				<Title type="h2" class="mb-2">{t('about.career')}</Title>
+				<WorkExperienceList list={list} />
+			</div>
+		</Section>
+	</div>
 </PageLayout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const r = document.querySelector<HTMLElement>(':root')
+		const centerMe = document.querySelector<HTMLElement>('.center-me')
+		const navContainer = document.querySelector<HTMLElement>('div > nav')
+
+		const setup = () => {
+			const navHeight = navContainer?.offsetHeight ?? 0
+			const centerMeHeight = centerMe?.offsetHeight ?? 0
+			const centerOffset = Math.round((window.innerHeight + navHeight - centerMeHeight) / 2)
+			r?.style.setProperty('--center-offset', centerOffset + 'px')
+		}
+
+		setup()
+
+		document.addEventListener('resize', setup)
+	})
+</script>

@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content'
 import Title from '@components/Title.astro'
 import Section from '@components/Section.astro'
 import PageLayout from '@layouts/PageLayout.astro'
+import Paragraph from '@components/Paragraph.astro'
 import PostList from '@components/Blog/Post/PostList.astro'
 import FeaturedList from '@components/Blog/Featured/FeaturedList.astro'
 import { i18n } from '@i18n/index'
@@ -15,16 +16,11 @@ const featured = blogEntries.filter((entry) => entry.data.featured).slice(0, 2)
 
 <PageLayout title="Blog">
 	<Section class="flex flex-col sm:flex-row">
-		<Title
-			type="h1"
-			set:html={t('blog.title')}
-			class="overflow-hidden hyphens-manual break-words px-4 py-8 sm:flex-1 sm:self-center md:px-6 lg:flex-[2]"
+		<Title type="h1" set:html={t('blog.title')} class="px-4 py-8 sm:flex-1 sm:self-center md:px-6 lg:flex-[2]" />
+		<Paragraph
+			set:html={t('blog.description')}
+			class="border-t border-black px-4 py-8 sm:flex-1 sm:border-l sm:border-t-0 md:px-6 lg:py-14 lg:pl-8"
 		/>
-		<div
-			class="flex flex-col border-t border-black px-4 py-8 sm:flex-1 sm:border-l sm:border-t-0 md:px-6 lg:py-14 lg:pl-8"
-		>
-			<p set:html={t('blog.description')} class="text-lg md:text-xl lg:text-2xl" />
-		</div>
 	</Section>
 
 	<div class="dark bg-black text-white">

@@ -14,3 +14,19 @@ export const blogSchema = z.object({
 })
 
 export type BlogSchema = z.infer<typeof blogSchema>
+
+export const workSchema = z.object({
+	role: z.string(),
+	company: z.object({
+		title: z.string(),
+		href: z.string()
+	}),
+	period: z.object({
+		from: z.date(),
+		to: z.string().or(z.date())
+	}),
+	location: z.string(),
+	description: z.array(z.string())
+})
+
+export type WorkSchema = z.infer<typeof workSchema>

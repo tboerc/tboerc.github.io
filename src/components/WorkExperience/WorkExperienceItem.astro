@@ -1,0 +1,37 @@
+---
+import type { WorkSchema } from '@schemas/index'
+import Link from '@components/Link.astro'
+import Title from '@components/Title.astro'
+import { i18n } from '@i18n/index'
+
+export type Props = WorkSchema
+
+const { locale } = i18n(Astro.url)
+
+const renderPeriodDate = (date: string | Date) => {
+	if (date instanceof Date)
+		return `
+			${date.toLocaleDateString(locale, { month: 'short' })}
+			${date.toLocaleDateString(locale, { year: 'numeric' })}
+		`
+	return date
+}
+
+const props = Astro.props
+---
+
+<li class="text-neutral-500">
+	<div class="flex flex-col xl:flex-row">
+		<Title type="h3" class="text-black">{props.role}</Title>
+		<span class="xl:ml-auto">
+			{renderPeriodDate(props.period.from)} - {renderPeriodDate(props.period.to)}
+		</span>
+	</div>
+	<Link href={props.company.href}>{props.company.title}</Link>
+	<div class="text-sm lg:text-base">
+		{props.location}
+	</div>
+	<ul class="mt-4 list-inside list-disc text-black">
+		{props.description.map((value) => <li>{value}</li>)}
+	</ul>
+</li>

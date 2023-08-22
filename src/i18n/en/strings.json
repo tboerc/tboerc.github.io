@@ -16,6 +16,16 @@
 	"home.blog.checkout": "Check out my blog:",
 	"home.blog.description": "Unlock the frontiers of tech and design. Dive into insights, trends, and creativity at Front Report",
 
+	"about.sticky.who": "Who am I?",
+	"about.sticky.story": "About my story",
+
+	"about.story.title": "Story",
+	"about.story.p.1": "Hey there! I'm Tiago, a dedicated web developer and student based in Brazil. I'm building cutting-edge web applications using the latest technologies such as React, Vue, Typescript, and much more for about 4 years now.",
+	"about.story.p.2": "It all began when I was around 12 years old, just a kid attempting to hack an Android device that I had. From that moment, I knew that technology was something I'm passionate about. Some years later, I managed to acquire a computer and started exploring the open-source community. I was amazed by this new universe I was discovering, and getting into programming felt like a natural progression.",
+	"about.story.p.3": "Today, I'm a full-time developer who has worked on projects ranging from mobile to web applications, spanning small companies to government-owned organizations. I constantly seek new challenges, aiming to deliver applications that prioritize accessibility, responsiveness, and optimal performance.",
+
+	"about.career": "Career",
+
 	"blog.title": "This is<br /><span class=\"bg-black text-white leading-tight\">Front Report</span>",
 	"blog.description": "Hey there, welcome to Front Report – your cozy corner of the internet for all things frontend and tech! I'm on a mission to share the coolest insights, trends, and mind-bending innovations from the world of web development.<br /><br />Let's unlock the frontiers of tech and design. Dive into insights, trends, and creativity.",
 	"blog.name": "Front Report",
