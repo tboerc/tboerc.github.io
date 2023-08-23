@@ -15,7 +15,7 @@ export const blogSchema = z.object({
 
 export type BlogSchema = z.infer<typeof blogSchema>
 
-export const workSchema = z.object({
+export const workExperienceSchema = z.object({
 	role: z.string(),
 	company: z.object({
 		title: z.string(),
@@ -29,4 +29,16 @@ export const workSchema = z.object({
 	description: z.array(z.string())
 })
 
-export type WorkSchema = z.infer<typeof workSchema>
+export type WorkExperienceSchema = z.infer<typeof workExperienceSchema>
+
+export const educationSchema = z.object({
+	title: z.string(),
+	type: z.enum(['degree', 'certificate']),
+	subtitle: z.string(),
+	date: z.date().optional(),
+	url: z.string().optional(),
+	period: z.object({ from: z.date(), to: z.date() }).optional(),
+	description: z.string().optional()
+})
+
+export type EducationSchema = z.infer<typeof educationSchema>

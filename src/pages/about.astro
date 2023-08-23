@@ -1,9 +1,10 @@
 ---
 import { Image } from 'astro:assets'
-import { getCollection } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 import Title from '@components/Title.astro'
 import Section from '@components/Section.astro'
 import PageLayout from '@layouts/PageLayout.astro'
+import EducationList from '@components/Education/EducationList.astro'
 import WorkExperienceList from '@components/WorkExperience/WorkExperienceList.astro'
 import { i18n } from '@i18n/index'
 
@@ -11,8 +12,21 @@ import me from '@assets/me.jpeg'
 
 const { t, localeKey } = i18n(Astro.url)
 
-const list = await getCollection('work-experience', (entry) => entry.id.startsWith(localeKey + '/'))
-list.sort((a, b) => b.data.period.from.getTime() - a.data.period.from.getTime())
+const sortEducation = (a: CollectionEntry<'education'>, b: CollectionEntry<'education'>) => {
+	const dateA = a.data.date || a.data.period?.to
+	const dateB = b.data.date || b.data.period?.to
+	return dateB!.getTime() - dateA!.getTime()
+}
+
+const sortWorkExperience = (a: CollectionEntry<'work-experience'>, b: CollectionEntry<'work-experience'>) => {
+	return b.data.period.from.getTime() - a.data.period.from.getTime()
+}
+
+const educationCollection = await getCollection('education', (entry) => entry.id.startsWith(localeKey + '/'))
+const workExperienceCollection = await getCollection('work-experience', (entry) => entry.id.startsWith(localeKey + '/'))
+
+educationCollection.sort(sortEducation)
+workExperienceCollection.sort(sortWorkExperience)
 ---
 
 <PageLayout title={t('menu.about')}>
@@ -33,7 +47,10 @@ list.sort((a, b) => b.data.period.from.getTime() - a.data.period.from.getTime())
 				<p>{t('about.story.p.3')}</p>
 
 				<Title type="h2" class="mt-2 lg:mt-6">{t('about.career')}</Title>
-				<WorkExperienceList list={list} />
+				<WorkExperienceList collection={workExperienceCollection} />
+
+				<Title type="h2" class="mt-2 lg:mt-6">{t('about.education')}</Title>
+				<EducationList collection={educationCollection} />
 			</div>
 		</Section>
 	</div>

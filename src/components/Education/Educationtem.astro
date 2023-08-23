@@ -1,0 +1,38 @@
+---
+import type { EducationSchema } from '@schemas/index'
+import Link from '@components/Link.astro'
+import Title from '@components/Title.astro'
+import { i18n } from '@i18n/index'
+
+export type Props = EducationSchema
+
+const { locale } = i18n(Astro.url)
+
+const renderDate = (date: EducationSchema['date'], period: EducationSchema['period']) => {
+	if (date)
+		return `
+			${date.toLocaleDateString(locale, { month: 'short' })}
+			${date.toLocaleDateString(locale, { year: 'numeric' })}
+		`
+	return `
+		${period?.from.toLocaleDateString(locale, { month: 'short' })}
+		${period?.from.toLocaleDateString(locale, { year: 'numeric' })}
+		-
+		${period?.to.toLocaleDateString(locale, { month: 'short' })}
+		${period?.to.toLocaleDateString(locale, { year: 'numeric' })}
+	`
+}
+
+const props = Astro.props
+---
+
+<li class="text-neutral-500">
+	<div class="flex flex-col xl:flex-row">
+		<Title type="h3" class="text-black">{props.title}</Title>
+		<span class="xl:ml-auto">
+			{renderDate(props.date, props.period)}
+		</span>
+	</div>
+	{props.type === 'degree' ? <span>{props.subtitle}</span> : <Link href={props.url!}>{props.subtitle}</Link>}
+	{props.description && <p class="text-black">{props.description}</p>}
+</li>
