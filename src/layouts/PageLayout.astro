@@ -5,6 +5,7 @@ type Props = BaseLayoutProps
 ---
 
 <BaseLayout {...Astro.props}>
+	<slot name="head" slot="head" />
 	<main>
 		<slot />
 	</main>

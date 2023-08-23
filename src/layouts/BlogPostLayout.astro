@@ -19,6 +19,7 @@ const readTime = (text: string) => {
 ---
 
 <BaseLayout title={`${title} - Blog`} description={t('blog.postAbout') + description}>
+	<slot name="head" slot="head" />
 	<main class="container 2xl:max-w-screen-xl">
 		<div class="flex flex-col border-b border-black px-4 py-6 md:px-6 md:py-8">
 			<Title as="h1" type="h2">
