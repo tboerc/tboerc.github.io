@@ -9,8 +9,10 @@ import WorkExperienceList from '@components/WorkExperience/WorkExperienceList.as
 import { i18n } from '@i18n/index'
 
 import me from '@assets/me.jpeg'
+import Paragraph from '@components/Paragraph.astro'
+import Link from '@components/Link.astro'
 
-const { t, localeKey } = i18n(Astro.url)
+const { t, r, localeKey } = i18n(Astro.url)
 
 const sortEducation = (a: CollectionEntry<'education'>, b: CollectionEntry<'education'>) => {
 	const dateA = a.data.date || a.data.period?.to
@@ -52,6 +54,18 @@ workExperienceCollection.sort(sortWorkExperience)
 				<Title type="h2" class="mt-2 lg:mt-6">{t('about.education')}</Title>
 				<EducationList collection={educationCollection} />
 			</div>
+		</Section>
+	</div>
+
+	<div class="border-t border-black text-center">
+		<Section class="px-4 py-8 md:px-6 lg:py-12">
+			<Title type="h2">
+				<span class="bg-black leading-tight text-white">{t('about.contact.lets')}</span>
+			</Title>
+			<Paragraph class="mt-8">
+				{t('about.contact.interested')}
+				<Link href={r('/contact/')}>{t('about.contact.goto')}</Link>
+			</Paragraph>
 		</Section>
 	</div>
 </PageLayout>
