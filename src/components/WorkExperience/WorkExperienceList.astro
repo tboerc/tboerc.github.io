@@ -3,10 +3,10 @@ import type { CollectionEntry } from 'astro:content'
 import WorkExperienceItem from '@components/WorkExperience/WorkExperienceItem.astro'
 
 type Props = {
-	list: CollectionEntry<'work'>[]
+	collection: CollectionEntry<'work-experience'>[]
 }
 
-const { list } = Astro.props
+const { collection } = Astro.props
 ---
 
-<ul class="flex flex-col gap-6">{list.map(({ data }) => <WorkExperienceItem {...data} />)}</ul>
+<ul class="flex flex-col gap-6">{collection.map(({ data }) => <WorkExperienceItem {...data} />)}</ul>

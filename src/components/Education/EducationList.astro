@@ -1,0 +1,12 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Educationtem from './Educationtem.astro'
+
+type Props = {
+	collection: CollectionEntry<'education'>[]
+}
+
+const { collection } = Astro.props
+---
+
+<ul class="flex flex-col gap-6">{collection.map(({ data }) => <Educationtem {...data} />)}</ul>
