@@ -1,6 +1,6 @@
 ---
 import Link from '@components/Link.astro'
-import BorderContainer from '@components/BorderContainer.astro'
+import Wrapper from '@components/Wrapper.astro'
 import LanguageSwitch from '@components/LanguageSwitch.astro'
 import { i18n } from '@i18n/index'
 
@@ -14,10 +14,12 @@ const { t } = i18n(Astro.url)
 ---
 
 <footer>
-	<BorderContainer parentClass="border-t" class="gap-4 md:py-4">
-		<LanguageSwitch />
-	</BorderContainer>
-	<BorderContainer parentClass="border-t" class="flex-col gap-6 py-6 sm:flex-row sm:items-center md:py-8">
+	<div class="border-y border-black">
+		<Wrapper as="div" class="flex gap-4 p-4 md:p-6 md:py-4">
+			<LanguageSwitch />
+		</Wrapper>
+	</div>
+	<Wrapper class="flex flex-col gap-6 px-4 py-6 sm:flex-row sm:items-center md:px-6 md:py-8">
 		<div>
 			<div>
 				{t('footer.createdBy')}
@@ -33,5 +35,5 @@ const { t } = i18n(Astro.url)
 			<Link href={GITHUB_PROFILE_URL}>GitHub</Link>
 			<Link href={NPM_PROFILE_URL}>npm</Link>
 		</div>
-	</BorderContainer>
+	</Wrapper>
 </footer>
