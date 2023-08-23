@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets'
 import { getCollection, type CollectionEntry } from 'astro:content'
 import Title from '@components/Title.astro'
-import Section from '@components/Section.astro'
+import Wrapper from '@components/Wrapper.astro'
 import PageLayout from '@layouts/PageLayout.astro'
 import EducationList from '@components/Education/EducationList.astro'
 import WorkExperienceList from '@components/WorkExperience/WorkExperienceList.astro'
@@ -33,7 +33,7 @@ workExperienceCollection.sort(sortWorkExperience)
 
 <PageLayout title={t('menu.about')}>
 	<div class="sm:bg-gradient-to-r sm:from-black sm:from-50% sm:to-white sm:to-50%">
-		<Section class="flex flex-col sm:flex-row sm:gap-16 sm:px-4 md:px-6 md:text-lg lg:gap-24 lg:text-xl">
+		<Wrapper as="div" class="flex flex-col sm:flex-row sm:gap-16 sm:px-4 md:px-6 md:text-lg lg:gap-24 lg:text-xl">
 			<div class="flex-shrink-0 bg-black px-4 py-8 sm:flex-1 sm:px-0 lg:py-12">
 				<div class="center-me sm:sticky sm:top-[var(--center-offset)]">
 					<Image src={me} alt="A image of the developer" />
@@ -54,11 +54,11 @@ workExperienceCollection.sort(sortWorkExperience)
 				<Title type="h2" class="mt-2 lg:mt-6">{t('about.education')}</Title>
 				<EducationList collection={educationCollection} />
 			</div>
-		</Section>
+		</Wrapper>
 	</div>
 
 	<div class="border-t border-black text-center">
-		<Section class="px-4 py-8 md:px-6 lg:py-12">
+		<Wrapper class="px-4 py-8 md:px-6 lg:py-12">
 			<Title type="h2">
 				<span class="bg-black leading-tight text-white">{t('about.contact.lets')}</span>
 			</Title>
@@ -66,7 +66,7 @@ workExperienceCollection.sort(sortWorkExperience)
 				{t('about.contact.interested')}
 				<Link href={r('/contact/')}>{t('about.contact.goto')}</Link>
 			</Paragraph>
-		</Section>
+		</Wrapper>
 	</div>
 </PageLayout>
 

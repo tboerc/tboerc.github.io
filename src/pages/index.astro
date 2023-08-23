@@ -1,7 +1,7 @@
 ---
 import Title from '@components/Title.astro'
 import Button from '@components/Button.astro'
-import Section from '@components/Section.astro'
+import Wrapper from '@components/Wrapper.astro'
 import PageLayout from '@layouts/PageLayout.astro'
 import Paragraph from '@components/Paragraph.astro'
 import { i18n } from '@i18n/index'
@@ -10,7 +10,7 @@ const { t, r } = i18n(Astro.url)
 ---
 
 <PageLayout title={t('menu.home')}>
-	<Section class="flex flex-col sm:flex-row">
+	<Wrapper class="flex flex-col sm:flex-row">
 		<Title
 			type="h1"
 			set:html={t('home.title')}
@@ -25,10 +25,10 @@ const { t, r } = i18n(Astro.url)
 				<Button as="a" href={r('/contact/')} class="w-36" size="large">{t('menu.contact')}</Button>
 			</div>
 		</div>
-	</Section>
+	</Wrapper>
 
 	<div class="bg-black text-center text-white">
-		<Section class="px-4 py-8 sm:border-x sm:border-white md:px-6 lg:py-14">
+		<Wrapper class="px-4 py-8 sm:border-x sm:border-white md:px-6 lg:py-14">
 			<Title type="h2" class="normal-case">
 				{t('home.blog.checkout')}<br />
 				<a href={r('/blog/')} class="bg-white uppercase leading-tight text-black">
@@ -38,6 +38,6 @@ const { t, r } = i18n(Astro.url)
 			<Paragraph class="mt-8 lg:mt-14">
 				{t('home.blog.description')}
 			</Paragraph>
-		</Section>
+		</Wrapper>
 	</div>
 </PageLayout>
