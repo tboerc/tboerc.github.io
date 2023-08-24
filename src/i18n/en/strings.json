@@ -28,6 +28,13 @@
 	"about.contact.interested": "Interested in working together? I'm just a click away.",
 	"about.contact.goto": "Contact me",
 
+	"contact.op­por­tu­ni­ties.title": "Let's Discuss<br /><span class=\"bg-black leading-tight text-white\">Op&shy;por&shy;tu&shy;ni&shy;ties</span>",
+	"contact.op­por­tu­ni­ties.p": "Opportunities await. If you're interested in exploring how I can contribute to your team, I'm here to chat.",
+	"contact.form.name": "Name",
+	"contact.form.email": "Email",
+	"contact.form.message": "Message",
+	"contact.form.send": "Send",
+
 	"blog.title": "This is<br /><span class=\"bg-black text-white leading-tight\">Front Report</span>",
 	"blog.description": "Hey there, welcome to Front Report – your cozy corner of the internet for all things frontend and tech! I'm on a mission to share the coolest insights, trends, and mind-bending innovations from the world of web development.<br /><br />Let's unlock the frontiers of tech and design. Dive into insights, trends, and creativity.",
 	"blog.name": "Front Report",

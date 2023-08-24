@@ -1,8 +1,51 @@
 ---
-import Section from '@components/Section.astro'
+import Link from '@components/Link.astro'
+import Title from '@components/Title.astro'
+import Button from '@components/Button.astro'
+import Wrapper from '@components/Wrapper.astro'
 import PageLayout from '@layouts/PageLayout.astro'
+import FormField from '@components/FormField.astro'
+import Paragraph from '@components/Paragraph.astro'
+import SocialMediaLinks from '@components/SocialMediaLinks.astro'
+import { i18n } from '@i18n/index'
+
+const { t } = i18n(Astro.url)
 ---
 
-<PageLayout title="Contact">
-	<Section>Contact</Section>
+<PageLayout title={t('menu.contact')}>
+	<Wrapper class="flex flex-col sm:flex-row">
+		<div class="flex-1 px-4 py-8 md:px-6 md:py-14 lg:flex-[2]">
+			<Title
+				type="h1"
+				class="overflow-hidden hyphens-manual break-words"
+				set:html={t('contact.op­por­tu­ni­ties.title')}
+			/>
+			<Paragraph class="mt-4 md:mt-6">
+				{t('contact.op­por­tu­ni­ties.p')}
+			</Paragraph>
+			<div class="mt-8 flex flex-col gap-8 md:mt-12 md:flex-row md:gap-12">
+				<div>
+					<p class="font-bold">Join me online</p>
+					<SocialMediaLinks />
+				</div>
+				<div>
+					<p class="font-bold">Email me directly:</p>
+					<Link href="mailto:tiago.boer@hotmail.com">tiago.boer@hotmail.com</Link>
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-col justify-center border-t border-black sm:flex-1 sm:border-l sm:border-t-0">
+			<form
+				method="post"
+				action="https://formspree.io/f/xoqodkdl"
+				class="flex flex-col gap-4 px-4 py-8 md:gap-6 md:px-6 lg:pl-8"
+			>
+				<FormField name="name" label={t('contact.form.name')} required minlength="3" />
+				<FormField as="input" name="email" type="email" label={t('contact.form.email')} required />
+				<FormField as="textarea" name="message" label={t('contact.form.message')} required minlength="10" />
+
+				<Button as="button" type="submit" size="large" variant="filled" class="w-full">{t('contact.form.send')}</Button>
+			</form>
+		</div>
+	</Wrapper>
 </PageLayout>
