@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge'
 
 const button = cva('border uppercase px-6 py-3 w-fit text-center hover:transition-colors', {
 	variants: {
-		type: {
+		variant: {
 			outlined:
 				'text-black border-black hover:bg-black hover:text-white dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-black',
 			filled:
@@ -17,7 +17,7 @@ const button = cva('border uppercase px-6 py-3 w-fit text-center hover:transitio
 		}
 	},
 	defaultVariants: {
-		type: 'outlined',
+		variant: 'outlined',
 		size: 'normal'
 	}
 })
@@ -27,9 +27,9 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 }> &
 	VariantProps<typeof button>
 
-const { type, size, class: className, as: Tag = 'button', ...props } = Astro.props
+const { variant, size, class: className, as: Tag = 'button', ...props } = Astro.props
 ---
 
-<Tag {...props} class={twMerge(button({ className, type, size }))}>
+<Tag {...props} class={twMerge(button({ className, variant, size }))}>
 	<slot />
 </Tag>
