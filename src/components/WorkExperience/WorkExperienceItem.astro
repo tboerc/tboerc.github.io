@@ -11,8 +11,8 @@ const { locale } = i18n(Astro.url)
 const renderPeriodDate = (date: string | Date) => {
 	if (date instanceof Date)
 		return `
-			${date.toLocaleDateString(locale, { month: 'short' })}
-			${date.toLocaleDateString(locale, { year: 'numeric' })}
+			${date.toLocaleDateString(locale, { month: 'short', timeZone: 'UTC' })}
+			${date.toLocaleDateString(locale, { year: 'numeric', timeZone: 'UTC' })}
 		`
 	return date
 }

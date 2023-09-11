@@ -9,17 +9,19 @@ export type Props = CollectionEntry<'education'>['data']
 const { locale } = i18n(Astro.url)
 
 const renderDate = (date: Props['date'], period: Props['period']) => {
+	const monthConfig: Intl.DateTimeFormatOptions = { month: 'short', timeZone: 'UTC' }
+	const yearConfig: Intl.DateTimeFormatOptions = { year: 'numeric', timeZone: 'UTC' }
 	if (date)
 		return `
-			${date.toLocaleDateString(locale, { month: 'short' })}
-			${date.toLocaleDateString(locale, { year: 'numeric' })}
+			${date.toLocaleDateString(locale, monthConfig)}
+			${date.toLocaleDateString(locale, yearConfig)}
 		`
 	return `
-		${period?.from.toLocaleDateString(locale, { month: 'short' })}
-		${period?.from.toLocaleDateString(locale, { year: 'numeric' })}
+		${period?.from.toLocaleDateString(locale, monthConfig)}
+		${period?.from.toLocaleDateString(locale, yearConfig)}
 		-
-		${period?.to.toLocaleDateString(locale, { month: 'short' })}
-		${period?.to.toLocaleDateString(locale, { year: 'numeric' })}
+		${period?.to.toLocaleDateString(locale, monthConfig)}
+		${period?.to.toLocaleDateString(locale, yearConfig)}
 	`
 }
 

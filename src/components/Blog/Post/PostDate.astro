@@ -12,6 +12,6 @@ const { publishDate } = Astro.props
 ---
 
 <span class="text-sm text-neutral-500 dark:text-neutral-400 sm:text-base">
-	{publishDate.toLocaleDateString(locale, { dateStyle: 'medium' })}
+	{publishDate.toLocaleDateString(locale, { dateStyle: 'medium', timeZone: 'UTC' })}
 	<slot />
 </span>
