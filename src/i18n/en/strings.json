@@ -43,7 +43,7 @@
 	"blog.name": "Front Report",
 	"blog.featured": "Featured",
 	"blog.allPosts": "All posts",
-	"blog.postAbout": "Post about ",
 	"blog.read": "min read",
-	"blog.seeMore": "See more"
+	"blog.seeMore": "See more",
+	"blog.noImage": "No image avaliable"
 }

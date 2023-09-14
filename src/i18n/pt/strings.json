@@ -25,7 +25,7 @@
 	"about.story.p.3": "Hoje, sou um desenvolvedor em tempo integral que trabalhou em projetos que vão desde aplicativos móveis até aplicações web, abrangendo desde pequenas empresas até estatais. Busco constantemente novos desafios, visando entregar aplicações que priorizem acessibilidade, responsividade e desempenho.",
 	"about.career": "Carreira",
 	"about.education": "Formação",
-	"about.contact.lets": "Vamos nos falar",
+	"about.contact.lets": "Vamos conversar",
 	"about.contact.interested": "Interessado em trabalhar juntos? Estou a apenas um clique de distância.",
 	"about.contact.goto": "Entre em contato",
 
@@ -43,7 +43,7 @@
 	"blog.name": "Front Report",
 	"blog.featured": "Destaque",
 	"blog.allPosts": "Todas as publicações",
-	"blog.postAbout": "Post sobre ",
 	"blog.read": "min de leitura",
-	"blog.seeMore": "Ver mais"
+	"blog.seeMore": "Ver mais",
+	"blog.noImage": "Imagem não disponível"
 }

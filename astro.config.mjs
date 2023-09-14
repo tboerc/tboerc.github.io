@@ -12,6 +12,11 @@ export default defineConfig({
 	build: {
 		format: 'directory'
 	},
+	markdown: {
+		shikiConfig: {
+			theme: 'dark-plus'
+		}
+	},
 	integrations: [
 		tailwind(),
 		i18n({

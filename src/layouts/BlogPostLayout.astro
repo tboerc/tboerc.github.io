@@ -19,7 +19,7 @@ const readTime = (text: string) => {
 }
 ---
 
-<BaseLayout title={`${title} - Blog`} description={t('blog.postAbout') + description}>
+<BaseLayout title={`${title} - Blog`} description={description}>
 	<slot name="head" slot="head" />
 	<main class="container 2xl:max-w-screen-xl">
 		<div class="flex flex-col border-b border-black px-4 py-6 md:px-6 md:py-8">
@@ -30,11 +30,11 @@ const readTime = (text: string) => {
 				- {readTime(body)}{' '}
 				{t('blog.read')}
 			</PostDate>
-			<p class="mt-1 lg:text-xl">{description}</p>
+			<p class="mt-1 lg:text-xl" set:html={description} />
 		</div>
 
 		<article class="prose mx-auto px-4 py-6 lg:prose-xl prose-hr:border-black sm:px-0 md:py-8">
-			<Image src={image} width="820" height="580" alt={imageAlt} class="object-cover" />
+			{image && imageAlt ? <Image src={image} width="820" height="580" alt={imageAlt} class="object-cover" /> : null}
 			<slot />
 		</article>
 	</main>
