@@ -36,5 +36,5 @@ const props = Astro.props
 		</span>
 	</div>
 	{props.type === 'degree' ? <span>{props.subtitle}</span> : <Link href={props.url!}>{props.subtitle}</Link>}
-	{props.description && <p class="text-black">{props.description}</p>}
+	{props.description ? <p class="text-black">{props.description}</p> : null}
 </li>
