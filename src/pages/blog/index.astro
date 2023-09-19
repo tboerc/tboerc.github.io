@@ -11,6 +11,9 @@ import { i18n } from '@i18n/index'
 const { t, localeKey } = i18n(Astro.url)
 
 const blogEntries = await getCollection('blog', (entry) => entry.slug.startsWith(localeKey + '/'))
+
+blogEntries.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+
 const featured = blogEntries.filter((entry) => entry.data.featured).slice(0, 2)
 ---
 
@@ -24,7 +27,7 @@ const featured = blogEntries.filter((entry) => entry.data.featured).slice(0, 2)
 	</Wrapper>
 
 	<div class="dark bg-black text-white">
-		<Wrapper class="flex flex-col">
+		<Wrapper class="flex flex-col border-x border-white">
 			<Title type="h2" class="border-b border-white px-4 py-6 md:px-6 md:py-8">
 				{t('blog.featured')}
 			</Title>
