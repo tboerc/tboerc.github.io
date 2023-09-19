@@ -3,6 +3,8 @@ title: Maquinas de Estado Finito no Frontend
 description: Domine o <i>unknown state</i> gerenciando-o com Máquinas de Estado Finito.
 language: pt
 featured: true
+image: '@assets/blog/fsm-image.png'
+imageAlt: Demonstrativo maquinas de estado finito
 publishDate: 2023-09-18
 ---
 

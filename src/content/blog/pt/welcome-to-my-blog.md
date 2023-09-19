@@ -3,6 +3,8 @@ title: Seja bem vindo ao meu blog
 description: Seu cantinho aconchegante na internet para tudo relacionado a frontend e tecnologia!
 language: pt
 featured: true
+image: '@assets/blog/welcome-to-my-blog-hello-world.png'
+imageAlt: console.log com hello world como parâmetro
 publishDate: 2023-09-18
 ---
 

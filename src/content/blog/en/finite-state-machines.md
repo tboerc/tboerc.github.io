@@ -3,6 +3,8 @@ title: Finite-state Machines in Frontend
 description: Tame the unknown state by managing it with Finite-state Machines
 language: en
 featured: true
+image: '@assets/blog/fsm-image.png'
+imageAlt: Finite-state machine demonstrative
 publishDate: 2023-09-18
 ---
 
