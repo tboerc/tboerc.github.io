@@ -17,7 +17,7 @@ blogEntries.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.get
 const featured = blogEntries.filter((entry) => entry.data.featured).slice(0, 2)
 ---
 
-<PageLayout title="Blog">
+<PageLayout title="Front Report">
 	<Wrapper class="flex flex-col sm:flex-row">
 		<Title type="h1" set:html={t('blog.title')} class="px-4 py-8 sm:flex-1 sm:self-center md:px-6 lg:flex-[2]" />
 		<Paragraph

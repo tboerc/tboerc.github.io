@@ -19,14 +19,14 @@ const { t } = i18n(Astro.url)
 	</div>
 	<Wrapper as="div" class="flex flex-col gap-6 px-4 py-6 sm:flex-row sm:items-center md:px-6 md:py-8">
 		<div>
-			<div>
+			<p>
 				{t('footer.createdBy')}{' '}
 				<Link href={GITHUB_REPOSITORY_URL}>Tiago</Link>
-			</div>
-			<div>
+			</p>
+			<p>
 				{t('footer.built')}{' '}
 				<Link href={ASTRO_URL}>Astro</Link>
-			</div>
+			</p>
 		</div>
 		<SocialMediaLinks class="flex gap-4 sm:ml-auto md:gap-6" />
 	</Wrapper>

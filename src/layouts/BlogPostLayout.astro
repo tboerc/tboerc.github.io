@@ -21,11 +21,11 @@ const readTime = (text: string) => {
 }
 ---
 
-<BaseLayout title={`${title} - Blog`} description={clearDescription}>
+<BaseLayout title={`${title} - Front Report`} description={clearDescription}>
 	<Fragment slot="head">
 		<meta property="og:type" content="article" />
 		<meta property="og:url" content={Astro.url.href} />
-		<meta property="og:title" content={`${title} - Blog - ${t('meta.by')}`} />
+		<meta property="og:title" content={`${title} - Front Report`} />
 		<meta property="og:description" content={clearDescription} />
 		{image?.src ? <meta property="og:image" content={Astro.site + image.src.slice(1)} /> : null}
 	</Fragment>
