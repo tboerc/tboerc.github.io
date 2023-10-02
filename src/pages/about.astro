@@ -39,8 +39,10 @@ workExperienceCollection.sort(sortWorkExperience)
 			<div class="flex-shrink-0 bg-black px-4 py-8 sm:flex-1 sm:px-0 lg:py-12">
 				<div class="center-me sm:sticky sm:top-[var(--center-offset)]">
 					<Image src={me} alt={t('about.sticky.myself')} width="568" height="568" />
-					<Title type="h2" class="mt-8 text-white lg:mt-12">{t('about.sticky.who')}</Title>
-					<Title type="h2" class="text-neutral-400">{t('about.sticky.story')}</Title>
+					<Title as="h1" type="h2" class="mt-8 text-white lg:mt-12">
+						{t('about.sticky.who')}<br />
+						<span class="text-neutral-400">{t('about.sticky.story')}</span>
+					</Title>
 				</div>
 			</div>
 
