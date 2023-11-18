@@ -16,7 +16,9 @@ const { t, r } = i18n(Astro.url)
 			set:html={t('home.title')}
 			class="overflow-hidden hyphens-manual break-words px-4 py-8 sm:flex-1 sm:self-center md:px-6 lg:flex-[2]"
 		/>
-		<div class="flex flex-col border-black px-4 py-8 max-sm:border-t sm:flex-1 sm:border-l md:px-6 lg:py-14 lg:pl-8">
+		<div
+			class="flex flex-col border-black px-4 py-8 dark:border-white max-sm:border-t sm:flex-1 sm:border-l md:px-6 lg:py-14 lg:pl-8"
+		>
 			<Paragraph set:html={t('home.description')} />
 			<div class="mt-8 flex gap-4">
 				<Button as="a" href={r('/about/')} class="w-36" size="large" variant="filled">{t('menu.about')}</Button>
@@ -25,7 +27,7 @@ const { t, r } = i18n(Astro.url)
 		</div>
 	</Wrapper>
 
-	<div class="bg-black text-center text-white">
+	<div class="border-t bg-black text-center text-white">
 		<Wrapper class="px-4 py-8 sm:border-x sm:border-white md:px-6 lg:py-14">
 			<Title type="h2" class="normal-case">
 				{t('home.blog.checkout')}<br />

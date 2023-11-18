@@ -12,12 +12,12 @@
 		"fmt": "prettier --write \"src/**/*.{md,ts,astro}\""
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.2.0",
-		"@astrojs/sitemap": "^3.0.0",
-		"@astrojs/tailwind": "^5.0.0",
+		"@astrojs/check": "^0.3.1",
+		"@astrojs/sitemap": "^3.0.3",
+		"@astrojs/tailwind": "^5.0.2",
 		"@tailwindcss/typography": "^0.5.10",
-		"astro": "^3.0.12",
-		"astro-i18n-aut": "^0.4.14",
+		"astro": "^3.5.5",
+		"astro-i18n-aut": "^0.4.25",
 		"class-variance-authority": "^0.7.0",
 		"prettier": "^3.0.3",
 		"prettier-plugin-astro": "^0.12.0",

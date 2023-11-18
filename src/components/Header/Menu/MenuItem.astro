@@ -12,8 +12,8 @@ const { pathname, text, active } = Astro.props
 
 <li
 	class={twMerge(
-		'text-[1.2rem] sm:text-xl font-bold uppercase text-neutral-400 md:text-2xl hover:text-black',
-		active ? 'text-black' : null
+		'text-[1.2rem] sm:text-xl font-bold uppercase text-neutral-500 dark:text-neutral-400 md:text-2xl hover:text-black dark:hover:text-white',
+		active ? 'text-black dark:text-white' : null
 	)}
 >
 	<a href={pathname}>{text}</a>

@@ -1,0 +1,38 @@
+---
+import { i18n } from '@i18n/index'
+import { twMerge } from 'tailwind-merge'
+
+type Props = {
+	class?: string
+}
+
+const { t } = i18n(Astro.url)
+
+const { class: className } = Astro.props
+---
+
+<div class={twMerge('flex', className)}>
+	<label>
+		<input id="theme_switch" type="checkbox" />
+		{t('menu.theme')}
+	</label>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const r = document.querySelector<HTMLElement>(':root')
+		const s = document.querySelector<HTMLInputElement>('#theme_switch')
+
+		const onThemeChange = (e: Event) => {
+			const target = e.target as HTMLInputElement
+
+			if (target.checked) {
+				r?.classList.add('dark')
+			} else {
+				r?.classList.remove('dark')
+			}
+		}
+
+		s?.addEventListener('change', onThemeChange)
+	})
+</script>
