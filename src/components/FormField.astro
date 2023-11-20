@@ -14,6 +14,9 @@ const { label, class: className, as: Tag = 'input', ...props } = Astro.props
 	<span class="mb-1 lg:text-lg">{label}</span>
 	<Tag
 		{...props}
-		class={twMerge('border border-black px-4 py-4 dark:bg-black outline-none dark:border-white', className)}
+		class={twMerge(
+			'border border-black px-4 py-4 dark:bg-black dark:border-white focus:border-black focus:ring-black dark:focus:border-white dark:focus:ring-white',
+			className
+		)}
 	/>
 </label>
