@@ -4,6 +4,7 @@ import Wrapper from '@components/Wrapper.astro'
 import LanguageSwitch from '@components/LanguageSwitch.astro'
 import SocialMediaLinks from '@components/SocialMediaLinks.astro'
 import { i18n } from '@i18n/index'
+import ThemeSwitch from '@components/ThemeSwitch.astro'
 
 const ASTRO_URL = 'https://astro.build/'
 const GITHUB_REPOSITORY_URL = 'https://github.com/tboerc/tboerc.github.io'
@@ -12,9 +13,10 @@ const { t } = i18n(Astro.url)
 ---
 
 <footer>
-	<div class="border-y border-black">
-		<Wrapper as="div" class="flex gap-4 p-4 md:p-6 md:py-4">
+	<div class="border-y border-black dark:border-white">
+		<Wrapper as="div" class="flex items-center gap-4 p-4 md:p-6 md:py-4">
 			<LanguageSwitch />
+			<ThemeSwitch />
 		</Wrapper>
 	</div>
 	<Wrapper as="div" class="flex flex-col gap-6 px-4 py-6 sm:flex-row sm:items-center md:px-6 md:py-8">

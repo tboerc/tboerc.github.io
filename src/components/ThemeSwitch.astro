@@ -1,0 +1,48 @@
+---
+import { i18n } from '@i18n/index'
+import { twMerge } from 'tailwind-merge'
+
+type Props = {
+	class?: string
+}
+
+const { t } = i18n(Astro.url)
+
+const { class: className } = Astro.props
+---
+
+<div class={twMerge('flex', className)}>
+	<label class="inline-flex items-center">
+		<input
+			id="theme_switch"
+			type="checkbox"
+			class="mr-1 checked:hover:border-inherit checked:hover:bg-inherit focus:bg-inherit focus:ring-0 checked:focus:bg-inherit dark:border-white dark:bg-black"
+		/>
+		{t('menu.theme')}
+	</label>
+</div>
+
+<script>
+	const r = document.querySelector<HTMLElement>(':root')!
+	const s = document.querySelector<HTMLInputElement>('#theme_switch')!
+
+	const onThemeLoad = () => {
+		const isDark = localStorage.getItem('isDark')
+		const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+		if ((isDark === null && prefersDarkMode) || isDark === 'true') {
+			s.checked = true
+			r.classList.add('dark')
+		}
+	}
+
+	const onThemeChange = (e: Event) => {
+		const target = e.target as HTMLInputElement
+		localStorage.setItem('isDark', target.checked.toString())
+		r.classList.toggle('dark')
+	}
+
+	onThemeLoad()
+
+	s.addEventListener('change', onThemeChange)
+</script>

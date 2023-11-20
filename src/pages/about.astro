@@ -34,9 +34,11 @@ workExperienceCollection.sort(sortWorkExperience)
 ---
 
 <PageLayout title={t('menu.about')}>
-	<div class="sm:bg-gradient-to-r sm:from-black sm:from-50% sm:to-white sm:to-50%">
-		<Wrapper as="div" class="flex flex-col sm:flex-row sm:gap-16 sm:px-4 md:px-6 md:text-lg lg:gap-24 lg:text-xl">
-			<div class="flex-shrink-0 bg-black px-4 py-8 sm:flex-1 sm:px-0 lg:py-12">
+	<div class="sm:bg-gradient-to-r sm:from-black sm:from-50% sm:to-white sm:to-50% dark:sm:to-black">
+		<Wrapper as="div" class="flex flex-col sm:flex-row sm:px-4 md:px-6 md:text-lg lg:text-xl">
+			<div
+				class="flex-shrink-0 bg-black py-8 dark:border-white max-sm:border-b max-sm:px-4 sm:flex-1 sm:border-r sm:pr-8 lg:py-12 lg:pr-12"
+			>
 				<div class="center-me sm:sticky sm:top-[var(--center-offset)]">
 					<Image src={me} alt={t('about.sticky.myself')} width="568" height="568" />
 					<Title as="h1" type="h2" class="mt-8 text-white lg:mt-12">
@@ -46,7 +48,7 @@ workExperienceCollection.sort(sortWorkExperience)
 				</div>
 			</div>
 
-			<div class="flex flex-shrink-0 flex-col gap-6 px-4 py-8 sm:flex-1 sm:px-0 lg:py-12">
+			<div class="flex flex-shrink-0 flex-col gap-6 py-8 max-sm:px-4 sm:flex-1 sm:pl-8 lg:py-12 lg:pl-12">
 				<Title type="h2">{t('about.story.title')}</Title>
 				<p>{t('about.story.p.1')}</p>
 				<p>{t('about.story.p.2')}</p>
@@ -61,10 +63,10 @@ workExperienceCollection.sort(sortWorkExperience)
 		</Wrapper>
 	</div>
 
-	<div class="border-t border-black text-center">
+	<div class="border-t border-black text-center dark:border-white">
 		<Wrapper class="px-4 py-8 md:px-6 lg:py-12">
 			<Title type="h2">
-				<span class="bg-black leading-tight text-white">{t('about.contact.lets')}</span>
+				<span class="bg-black leading-tight text-white dark:bg-white dark:text-black">{t('about.contact.lets')}</span>
 			</Title>
 			<Paragraph class="mt-8">
 				{t('about.contact.interested')}{' '}
