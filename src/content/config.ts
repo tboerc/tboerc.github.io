@@ -1,23 +1,28 @@
-import { defineCollection } from 'astro:content'
-import { blogSchema, workExperienceSchema, educationSchema } from '@schemas/index'
+import {
+  blogSchema,
+  workExperienceSchema,
+  educationSchema,
+} from "@schemas/index";
+import { glob } from "astro/loaders";
+import { defineCollection } from "astro:content";
 
 const blogCollection = defineCollection({
-	type: 'content',
-	schema: blogSchema
-})
+  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  schema: blogSchema,
+});
 
 const workCollection = defineCollection({
-	type: 'data',
-	schema: workExperienceSchema
-})
+  loader: glob({ pattern: "**/*.yml", base: "./src/content/work-experience" }),
+  schema: workExperienceSchema,
+});
 
 const educationCollection = defineCollection({
-	type: 'data',
-	schema: educationSchema
-})
+  loader: glob({ pattern: "**/*.yml", base: "./src/content/education" }),
+  schema: educationSchema,
+});
 
 export const collections = {
-	blog: blogCollection,
-	education: educationCollection,
-	'work-experience': workCollection
-}
+  blog: blogCollection,
+  education: educationCollection,
+  "work-experience": workCollection,
+};

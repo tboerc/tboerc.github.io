@@ -3,7 +3,7 @@ title: Welcome to my blog
 description: Your cozy corner of the internet for all things frontend and tech!
 language: en
 featured: false
-image: '@assets/blog/welcome-to-my-blog-hello-world.png'
+image: "@assets/blog/welcome-to-my-blog-hello-world.png"
 imageAlt: console.log with hello world as parameter
 publishDate: 2023-09-18
 ---

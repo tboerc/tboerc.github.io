@@ -3,7 +3,7 @@ title: Maquinas de Estado Finito no Frontend
 description: Domine o <i>unknown state</i> gerenciando-o com Máquinas de Estado Finito.
 language: pt
 featured: true
-image: '@assets/blog/fsm-image.png'
+image: "@assets/blog/fsm-image.png"
 imageAlt: Demonstrativo maquinas de estado finito
 publishDate: 2023-09-18
 ---
@@ -18,24 +18,24 @@ O gerenciamento de estado é um aspecto fundamental na construção de interface
 
 ```tsx
 const MyComponent = () => {
-	const [isLoading, setIsLoading] = useState(false)
-	const [isError, setIsError] = useState(false)
-	const [isSuccess, setIsSuccess] = useState(false)
-	const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-	// ... Rest of the component code
+  // ... Rest of the component code
 
-	return (
-		<>
-			<button onClick={() => setIsModalOpen(true)}>Open modal</button>
+  return (
+    <>
+      <button onClick={() => setIsModalOpen(true)}>Open modal</button>
 
-			{isModalOpen && <Modal onSubmit={submit} />}
-			{isLoading && <Loading />}
-			{isSuccess && <SuccessMessage onClose={() => setIsSuccess(false)} />}
-			{isError && <ErrorMessage onClose={() => setIsError(false)} />}
-		</>
-	)
-}
+      {isModalOpen && <Modal onSubmit={submit} />}
+      {isLoading && <Loading />}
+      {isSuccess && <SuccessMessage onClose={() => setIsSuccess(false)} />}
+      {isError && <ErrorMessage onClose={() => setIsError(false)} />}
+    </>
+  );
+};
 ```
 
 Embora esse código possa parecer gerenciável a princípio, rapidamente pode se tornar complicado à medida que você adiciona mais variáveis booleanas para rastrear vários estados do componente. Essa abordagem pode levar a um problema conhecido como **unknown state**, onde se torna desafiador discernir **quais combinações de estados são válidas**, tornando seu código propenso a **bugs** e **comportamentos inesperados**.
@@ -66,32 +66,34 @@ Passando da teoria para a prática, vejamos como a implementação em código se
 
 ```tsx
 // Define all possible states
-type ComponentState = 'Idle' | 'Loading' | 'Error' | 'Success' | 'ModalOpen'
+type ComponentState = "Idle" | "Loading" | "Error" | "Success" | "ModalOpen";
 
 const MyComponent = () => {
-	// Initial state value
-	const [currentState, setCurrentState] = useState<ComponentState>('Idle')
+  // Initial state value
+  const [currentState, setCurrentState] = useState<ComponentState>("Idle");
 
-	// Functions to transition between states
-	const openModal = () => setCurrentState('ModalOpen')
-	const requestSubmitted = () => setCurrentState('Loading')
-	const requestSucceeded = () => setCurrentState('Success')
-	const serverError = () => setCurrentState('Error')
-	const close = () => setCurrentState('Idle')
+  // Functions to transition between states
+  const openModal = () => setCurrentState("ModalOpen");
+  const requestSubmitted = () => setCurrentState("Loading");
+  const requestSucceeded = () => setCurrentState("Success");
+  const serverError = () => setCurrentState("Error");
+  const close = () => setCurrentState("Idle");
 
-	// ... Rest of the component code
+  // ... Rest of the component code
 
-	return (
-		<>
-			{/* Render UI based on the current state */}
-			{currentState === 'Idle' && <button onClick={openModal}>Open modal</button>}
-			{currentState === 'ModalOpen' && <Modal onSubmit={submit} />}
-			{currentState === 'Loading' && <Loading />}
-			{currentState === 'Success' && <SuccessMessage onClose={close} />}
-			{currentState === 'Error' && <ErrorMessage onClose={close} />}
-		</>
-	)
-}
+  return (
+    <>
+      {/* Render UI based on the current state */}
+      {currentState === "Idle" && (
+        <button onClick={openModal}>Open modal</button>
+      )}
+      {currentState === "ModalOpen" && <Modal onSubmit={submit} />}
+      {currentState === "Loading" && <Loading />}
+      {currentState === "Success" && <SuccessMessage onClose={close} />}
+      {currentState === "Error" && <ErrorMessage onClose={close} />}
+    </>
+  );
+};
 ```
 
 Neste exemplo, definimos os estados possíveis como um `type` (ComponentState) e usamos uma única variável `currentState` para representar o estado ativo. Funções são fornecidas para fazer a transição entre os estados, garantindo que **apenas um estado possa estar ativo de cada vez**.

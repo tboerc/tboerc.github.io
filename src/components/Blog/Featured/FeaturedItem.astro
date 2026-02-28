@@ -1,42 +1,46 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import { Image } from 'astro:assets'
-import Title from '@components/Title.astro'
-import Button from '@components/Button.astro'
-import PostDate from '@components/Blog/Post/PostDate.astro'
-import { i18n } from '@i18n/index'
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import Title from "@components/Title.astro";
+import Button from "@components/Button.astro";
+import PostDate from "@components/Blog/Post/PostDate.astro";
+import { i18n } from "@i18n/index";
 
 type Props = {
-	item: CollectionEntry<'blog'>
-}
+  item: CollectionEntry<"blog">;
+};
 
-const { r, t } = i18n(Astro.url)
+const { r, t } = i18n(Astro.url);
 
-const { item } = Astro.props
+const { item } = Astro.props;
 
-const url = item.slug.slice(3)
+const url = item.id.slice(3);
 ---
 
-<li class="flex flex-shrink-0 flex-col border border-white sm:flex-1">
-	{
-		item.data.image && item.data.imageAlt ? (
-			<Image
-				src={item.data.image}
-				width="602"
-				height="426"
-				alt={item.data.imageAlt}
-				class="object-cover max-sm:h-[324px] sm:h-[208px] md:h-[244px] lg:h-[426px]"
-			/>
-		) : (
-			<div class="flex w-full items-center max-sm:h-[324px] sm:h-[208px] md:h-[244px] lg:h-[426px]">
-				<span class="mx-auto px-4 text-center text-2xl uppercase lg:text-5xl">{t('blog.noImage')}</span>
-			</div>
-		)
-	}
-	<article class="flex flex-1 flex-col border-t border-white p-4 md:p-6">
-		<Title type="h3">{item.data.title}</Title>
-		<PostDate publishDate={item.data.publishDate} />
-		<p class="mb-4 mt-1" set:html={item.data.description} />
-		<Button as="a" href={r(`/blog/${url}/`)} class="mt-auto">{t('blog.seeMore')}</Button>
-	</article>
+<li class="flex shrink-0 flex-col border border-white sm:flex-1">
+  {
+    item.data.image && item.data.imageAlt ? (
+      <Image
+        src={item.data.image}
+        width="602"
+        height="426"
+        alt={item.data.imageAlt}
+        class="object-cover max-sm:h-81 sm:h-52 md:h-61 lg:h-106.5"
+      />
+    ) : (
+      <div class="flex w-full items-center max-sm:h-81 sm:h-52 md:h-61 lg:h-106.5">
+        <span class="mx-auto px-4 text-center text-2xl uppercase lg:text-5xl">
+          {t("blog.noImage")}
+        </span>
+      </div>
+    )
+  }
+  <article class="flex flex-1 flex-col border-t border-white p-4 md:p-6">
+    <Title type="h3">{item.data.title}</Title>
+    <PostDate publishDate={item.data.publishDate} />
+    <p class="mt-1 mb-4" set:html={item.data.description} />
+    <Button as="a" href={r(`/blog/${url}/`)} class="mt-auto"
+      >{t("blog.seeMore")}</Button
+    >
+  </article>
 </li>

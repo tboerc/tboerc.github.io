@@ -1,35 +1,38 @@
 ---
-import Link from '@components/Link.astro'
-import Wrapper from '@components/Wrapper.astro'
-import LanguageSwitch from '@components/LanguageSwitch.astro'
-import SocialMediaLinks from '@components/SocialMediaLinks.astro'
-import { i18n } from '@i18n/index'
-import ThemeSwitch from '@components/ThemeSwitch.astro'
+import Link from "@components/Link.astro";
+import Wrapper from "@components/Wrapper.astro";
+import LanguageSwitch from "@components/LanguageSwitch.astro";
+import SocialMediaLinks from "@components/SocialMediaLinks.astro";
+import { i18n } from "@i18n/index";
+import ThemeSwitch from "@components/ThemeSwitch.astro";
 
-const ASTRO_URL = 'https://astro.build/'
-const GITHUB_REPOSITORY_URL = 'https://github.com/tboerc/tboerc.github.io'
+const ASTRO_URL = "https://astro.build/";
+const GITHUB_REPOSITORY_URL = "https://github.com/tboerc/tboerc.github.io";
 
-const { t } = i18n(Astro.url)
+const { t } = i18n(Astro.url);
 ---
 
 <footer>
-	<div class="border-y border-black dark:border-white">
-		<Wrapper as="div" class="flex items-center gap-4 p-4 md:p-6 md:py-4">
-			<LanguageSwitch />
-			<ThemeSwitch />
-		</Wrapper>
-	</div>
-	<Wrapper as="div" class="flex flex-col gap-6 px-4 py-6 sm:flex-row sm:items-center md:px-6 md:py-8">
-		<div>
-			<p>
-				{t('footer.createdBy')}{' '}
-				<Link href={GITHUB_REPOSITORY_URL}>Tiago</Link>
-			</p>
-			<p>
-				{t('footer.built')}{' '}
-				<Link href={ASTRO_URL}>Astro</Link>
-			</p>
-		</div>
-		<SocialMediaLinks class="flex gap-4 sm:ml-auto md:gap-6" />
-	</Wrapper>
+  <div class="border-y border-black dark:border-white">
+    <Wrapper as="div" class="flex items-center gap-4 p-4 md:p-6 md:py-4">
+      <LanguageSwitch />
+      <ThemeSwitch />
+    </Wrapper>
+  </div>
+  <Wrapper
+    as="div"
+    class="flex flex-col gap-6 px-4 py-6 sm:flex-row sm:items-center md:px-6 md:py-8"
+  >
+    <div>
+      <p>
+        {t("footer.createdBy")}{" "}
+        <Link href={GITHUB_REPOSITORY_URL}>Tiago</Link>
+      </p>
+      <p>
+        {t("footer.built")}{" "}
+        <Link href={ASTRO_URL}>Astro</Link>
+      </p>
+    </div>
+    <SocialMediaLinks class="flex gap-4 sm:ml-auto md:gap-6" />
+  </Wrapper>
 </footer>

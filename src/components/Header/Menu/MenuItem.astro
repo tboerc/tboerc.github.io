@@ -1,20 +1,20 @@
 ---
-import { twMerge } from 'tailwind-merge'
+import { twMerge } from "tailwind-merge";
 
 type Props = {
-	text: string
-	pathname: string
-	active: boolean
-}
+  text: string;
+  pathname: string;
+  active: boolean;
+};
 
-const { pathname, text, active } = Astro.props
+const { pathname, text, active } = Astro.props;
 ---
 
 <li
-	class={twMerge(
-		'text-[1.2rem] sm:text-xl font-bold uppercase text-neutral-500 dark:text-neutral-400 md:text-2xl hover:text-black dark:hover:text-white',
-		active ? 'text-black dark:text-white' : null
-	)}
+  class={twMerge(
+    "text-[1.2rem] sm:text-xl font-bold uppercase text-neutral-500 dark:text-neutral-400 md:text-2xl hover:text-black dark:hover:text-white",
+    active ? "text-black dark:text-white" : null,
+  )}
 >
-	<a href={pathname}>{text}</a>
+  <a href={pathname}>{text}</a>
 </li>

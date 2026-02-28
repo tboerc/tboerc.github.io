@@ -1,9 +1,9 @@
 ---
-title: 'Passkeys: um futuro sem senhas'
+title: "Passkeys: um futuro sem senhas"
 description: Entenda essa nova forma de autenticação segura e simples para usuários
 language: pt
 featured: true
-image: '@assets/blog/passkeys.png'
+image: "@assets/blog/passkeys.png"
 imageAlt: Passkeys logo
 publishDate: 2024-01-06
 ---
@@ -46,19 +46,23 @@ O Passage possui muitas APIs e SDKs prontos para uso, e você só precisa de um 
 ```tsx
 // login/page.tsx
 
-'use client'
+"use client";
 
-import { useEffect } from 'react'
+import { useEffect } from "react";
 
 export default function LoginPage() {
-	useEffect(() => {
-		// Because this import register the custom element with the browser
-		// It needs to be required inside the `useEffect`, so it is just
-		// Loaded inside the client, and not in the server
-		require('@passageidentity/passage-elements/passage-auth')
-	}, [])
+  useEffect(() => {
+    // Because this import register the custom element with the browser
+    // It needs to be required inside the `useEffect`, so it is just
+    // Loaded inside the client, and not in the server
+    require("@passageidentity/passage-elements/passage-auth");
+  }, []);
 
-	return <passage-auth app-id={process.env.NEXT_PUBLIC_PASSAGE_APP_ID}></passage-auth>
+  return (
+    <passage-auth
+      app-id={process.env.NEXT_PUBLIC_PASSAGE_APP_ID}
+    ></passage-auth>
+  );
 }
 ```
 
@@ -66,47 +70,46 @@ Você pode validar o usuário no lado do servidor usando o [Passage Node.js SDK]
 
 ```tsx
 // home/page.tsx
+import Passage from "@passageidentity/passage-node/lib/cjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-import Passage from '@passageidentity/passage-node/lib/cjs'
-import { redirect } from 'next/navigation'
-import { cookies } from 'next/headers'
-
-const appID = process.env.NEXT_PUBLIC_PASSAGE_APP_ID!
-const apiKey = process.env.PASSAGE_API_KEY!
+const appID = process.env.NEXT_PUBLIC_PASSAGE_APP_ID!;
+const apiKey = process.env.PASSAGE_API_KEY!;
 
 const passage = new Passage({
-	appID,
-	apiKey,
-	authStrategy: 'HEADER'
-})
+  appID,
+  apiKey,
+  authStrategy: "HEADER",
+});
 
 async function isUserAuthorized() {
-	try {
-		const cookieStore = cookies()
-		const authToken = cookieStore.get('psg_auth_token')?.value
+  try {
+    const cookieStore = cookies();
+    const authToken = cookieStore.get("psg_auth_token")?.value;
 
-		const req = {
-			headers: {
-				authorization: `Bearer ${authToken}`
-			}
-		}
+    const req = {
+      headers: {
+        authorization: `Bearer ${authToken}`,
+      },
+    };
 
-		const userID = await passage.authenticateRequest(req)
+    const userID = await passage.authenticateRequest(req);
 
-		if (userID) {
-			return true
-		}
-	} catch {
-		return false
-	}
+    if (userID) {
+      return true;
+    }
+  } catch {
+    return false;
+  }
 }
 
 export default async function HomePage() {
-	if (!(await isUserAuthorized())) {
-		redirect('/login')
-	}
+  if (!(await isUserAuthorized())) {
+    redirect("/login");
+  }
 
-	return <>...</>
+  return <>...</>;
 }
 ```
 

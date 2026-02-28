@@ -1,12 +1,14 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import Educationtem from '@components/Education/Educationtem.astro'
+import type { CollectionEntry } from "astro:content";
+import Educationtem from "@components/Education/Educationtem.astro";
 
 type Props = {
-	collection: CollectionEntry<'education'>[]
-}
+  collection: CollectionEntry<"education">[];
+};
 
-const { collection } = Astro.props
+const { collection } = Astro.props;
 ---
 
-<ul class="flex flex-col gap-6">{collection.map(({ data }) => <Educationtem {...data} />)}</ul>
+<ul class="flex flex-col gap-6">
+  {collection.map(({ data }) => <Educationtem {...data} />)}
+</ul>

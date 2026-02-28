@@ -1,9 +1,8 @@
 import { defineConfig } from 'astro/config'
 import { i18n, filterSitemapByDefaultLocale } from 'astro-i18n-aut/integration'
-import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
-
 import { DEFAULT_LOCALE, LOCALES } from './src/i18n/locales'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +17,6 @@ export default defineConfig({
 		}
 	},
 	integrations: [
-		tailwind(),
 		i18n({
 			locales: LOCALES,
 			defaultLocale: DEFAULT_LOCALE,
@@ -31,5 +29,8 @@ export default defineConfig({
 			},
 			filter: filterSitemapByDefaultLocale({ defaultLocale: DEFAULT_LOCALE })
 		})
-	]
+	],
+	vite: {
+		plugins: [tailwindcss()]
+	}
 })

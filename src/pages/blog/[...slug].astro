@@ -1,30 +1,32 @@
 ---
-import { getCollection, getEntry } from 'astro:content'
-import BlogPostLayout from '@layouts/BlogPostLayout.astro'
-import { i18n, DEFAULT_LOCALE } from '@i18n/index'
+import { getCollection, getEntry, render } from "astro:content";
+import BlogPostLayout from "@layouts/BlogPostLayout.astro";
+import { i18n, DEFAULT_LOCALE } from "@i18n/index";
 
 export async function getStaticPaths() {
-	const blogEntries = await getCollection('blog', (entry) => entry.slug.startsWith(DEFAULT_LOCALE + '/'))
-	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug.replace(`${DEFAULT_LOCALE}/`, '') }
-	}))
+  const blogEntries = await getCollection("blog", (entry) =>
+    entry.id.startsWith(DEFAULT_LOCALE + "/"),
+  );
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.id.replace(`${DEFAULT_LOCALE}/`, "") },
+  }));
 }
 
-const { slug } = Astro.params
-const { localeKey } = i18n(Astro.url)
+const { slug } = Astro.params;
+const { localeKey } = i18n(Astro.url);
 
 const entry = await getEntry({
-	collection: 'blog',
-	slug: localeKey + '/' + slug
-})
+  collection: "blog",
+  id: localeKey + "/" + slug,
+});
 
 if (!entry) {
-	return new Response(null, { status: 404, statusText: 'Not found' })
+  return new Response(null, { status: 404, statusText: "Not found" });
 }
 
-const { Content } = await entry.render()
+const { Content } = await render(entry);
 ---
 
-<BlogPostLayout {...entry.data} body={entry.body}>
-	<Content />
+<BlogPostLayout {...entry.data} body={entry.body!}>
+  <Content />
 </BlogPostLayout>
