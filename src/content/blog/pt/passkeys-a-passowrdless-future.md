@@ -1,6 +1,6 @@
 ---
 title: "Passkeys: um futuro sem senhas"
-description: Entenda essa nova forma de autenticação segura e simples para usuários
+description: Entenda essa nova forma de autenticação segura e simples para usuários.
 language: pt
 featured: true
 image: "@assets/blog/passkeys.png"

@@ -39,10 +39,7 @@ const { t, r } = i18n(Astro.url);
     <Wrapper class="px-4 py-8 sm:border-x sm:border-white md:px-6 lg:py-14">
       <Title type="h2" class="normal-case">
         {t("home.blog.checkout")}<br />
-        <a
-          href={r("/blog/")}
-          class="bg-white leading-tight text-black uppercase"
-        >
+        <a href={r("/blog/")} class="bg-white leading-tight text-black">
           {t("blog.name")}
         </a>
       </Title>

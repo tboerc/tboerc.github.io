@@ -1,6 +1,6 @@
 ---
 title: "Passkeys: a passwordless future"
-description: Understand this new way of secure and simple user authentication
+description: Understand this new way of secure and simple user authentication.
 language: en
 featured: true
 image: "@assets/blog/passkeys.png"

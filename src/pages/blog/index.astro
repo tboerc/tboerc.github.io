@@ -21,16 +21,16 @@ blogEntries.sort(
 const featured = blogEntries.filter((entry) => entry.data.featured).slice(0, 2);
 ---
 
-<PageLayout title="Front Report">
+<PageLayout title="POST /it">
   <Wrapper class="flex flex-col sm:flex-row">
     <Title
       type="h1"
       set:html={t("blog.title")}
-      class="px-4 py-8 sm:flex-1 sm:self-center md:px-6 lg:flex-2"
+      class="px-4 py-8 sm:flex-1 sm:self-center md:px-6 lg:flex-1"
     />
     <Paragraph
       set:html={t("blog.description")}
-      class="border-t border-black px-4 py-8 sm:flex-1 sm:border-t-0 sm:border-l md:px-6 lg:py-14 lg:pl-8 dark:border-white"
+      class="border-t border-black px-4 py-8 sm:flex-1 sm:border-t-0 sm:border-l md:px-6 lg:flex-2 lg:py-14 lg:pl-8 dark:border-white"
     />
   </Wrapper>
 

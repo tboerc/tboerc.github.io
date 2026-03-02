@@ -5,7 +5,7 @@ language: pt
 featured: true
 image: "@assets/blog/fsm-image.png"
 imageAlt: Demonstrativo maquinas de estado finito
-publishDate: 2023-09-18
+publishDate: 2023-09-19
 ---
 
 ## Antes de mais nada
