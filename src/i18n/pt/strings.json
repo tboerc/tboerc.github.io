@@ -40,7 +40,7 @@
   "contact.join.mail": "Envie-me um e-mail diretamente:",
 
   "blog.title": "Esse é o<br /><span class=\"bg-black text-white normal-case leading-tight dark:text-black dark:bg-white\">POST /it</span>",
-  "blog.description": "Bem-vindo ao POST /it. Eu construo coisas para a web e aqui documento o processo. Arquitetura de front-end, ferramentas e escolhas de design geralmente são o foco principal.<br /><br />Cada postagem surge de algo em que estou trabalhando ativamente ou tentando entender melhor. É menos sobre tendências e mais sobre experiência prática.",
+  "blog.description": "Bem-vindo ao POST /it. Eu construo coisas para a web e aqui documento o processo. Arquitetura de front-end, ferramentas e escolhas de design geralmente são o foco principal.<br /><br />Cada postagem surge de algo em que estou trabalhando ativamente ou tentando entender melhor.",
   "blog.name": "POST /it",
   "blog.featured": "Destaque",
   "blog.allPosts": "Todas as publicações",

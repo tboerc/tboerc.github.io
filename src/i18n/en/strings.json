@@ -40,7 +40,7 @@
   "contact.join.mail": "Email me directly:",
 
   "blog.title": "This is<br /><span class=\"bg-black text-white normal-case leading-tight dark:text-black dark:bg-white\">POST /it</span>",
-  "blog.description": "Welcome to POST /it. I build things for the web, and this is where I document the process. Frontend architecture, tooling, and design choices are usually at the center of it.<br /><br />Every post comes from something I’m actively working on or trying to understand better. It’s less about trends and more about practical experience.",
+  "blog.description": "Welcome to POST /it. I build things for the web, and this is where I document the process. Frontend architecture, tooling, and design choices are usually at the center of it.<br /><br />Every post comes from something I’m actively working on or trying to understand better.",
   "blog.name": "POST /it",
   "blog.featured": "Featured",
   "blog.allPosts": "All posts",
